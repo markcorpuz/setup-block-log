@@ -35,11 +35,10 @@ function setup_log_function() {
  * Remove comments below to allow if we want the styles to be independent but at the moment, we're using the default child theme styles
  * 
  */
-/*
+
 if ( !is_admin() ) {
 
     // ENQUEUE SCRIPTS
     add_action( 'wp_enqueue_scripts', 'setup_log_function' );
 
 }
-*/

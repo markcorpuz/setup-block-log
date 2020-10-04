@@ -33,7 +33,7 @@ function setup_log_block_acf_init() {
         'logs' => array(
             'name'                  => 'log',
             'title'                 => __('Log'),
-            'render_template'       => plugin_dir_path( __FILE__ ).'partials/blocks/setup-log-listall.php',
+            'render_template'       => plugin_dir_path( __FILE__ ).'partials/blocks/setup-log-flex.php',
             'category'              => 'setup',
             'icon'                  => 'list-view',
             'mode'                  => 'edit',
@@ -59,12 +59,176 @@ function setup_log_block_acf_init() {
 
     $allowed_roles = array( 'administrator' ); // can also be array( 'editor', 'administrator', 'author' );
 
-    if( array_intersect( $allowed_roles, $user->roles ) ) {
+//    if( array_intersect( $allowed_roles, $user->roles ) ) {
 
         foreach( $blocks as $block ) {
             acf_register_block_type( $block );
         }
 
-    }
+//    }
   
+}
+
+
+/**
+ * Auto fill Select options
+ *
+ */
+add_filter( 'acf/load_field/name=log_layout', 'acf_setup_load_template_choices' );
+function acf_setup_load_template_choices( $field ) {
+    
+    // get all files found in VIEWS folder
+    $view_dir = plugin_dir_path( __FILE__ ).'partials/views/';
+/*    $files = scandir($path);
+    $choices = array_diff(scandir($path), array('.', '..'));
+    var_dump($choices);
+  */
+
+    $data_from_database = setup_pull_view_files( $view_dir );
+
+    //Change this to whatever data you are using.
+    /*$data_from_database = array(
+        'key1' => 'value1',
+        'key2' => 'value2'
+    );*/
+
+    $field['choices'] = array();
+
+    //Loop through whatever data you are using, and assign a key/value
+    foreach($data_from_database as $field_key => $field_value) {
+        $field['choices'][$field_key] = $field_value;
+    }
+    return $field;
+    
+}
+
+
+/**
+ * Get VIEW template
+ */
+function setup_acf_pull_view_template( $layout ) {
+
+    ob_start();
+
+    include plugin_dir_path( __FILE__ ).'partials/views/'.$layout;
+
+    $new_output = ob_get_clean();
+        
+    if( !empty( $new_output ) )
+        $output = $new_output;
+
+    return $output;
+
+}
+
+/*add_action( 'genesis_before_content', 'textsss' );
+function textsss() {
+    $view_dir = plugin_dir_path( __FILE__ ).'partials/views/';
+    var_dump( setup_pull_view_files( $view_dir ) );
+}*/
+
+
+// #####################################################################################################################
+// get all files in the INC folder to be used for including the said files
+// but get rid of the dots that scandir() picks up in Linux environments
+if( !function_exists( 'setup_pull_view_files' ) ) {
+
+    function setup_pull_view_files( $directory ) {
+        
+        // get all files inside the directory but remove unnecessary directories
+        $ss_plug_dir = array_diff( scandir( $directory ), array( '..', '.' ) );
+        
+        foreach ($ss_plug_dir as $value) {
+            
+            // combine directory and filename
+            $file = $directory.'/'.$value;
+            
+            // get details of the file
+            $filepath = pathinfo( $file );
+            
+            // ------------------------------------------------------
+            $source = file_get_contents( $file );
+
+            $tokens = token_get_all( $source );
+            $comment = array(
+                T_COMMENT,      // All comments since PHP5
+//                T_ML_COMMENT,   // Multiline comments PHP4 only
+//                T_DOC_COMMENT   // PHPDoc comments      
+            );
+
+            foreach( $tokens as $token ) {
+
+                if( !in_array($token[0], $comment) )
+                    continue;
+
+                // Do something with the comment
+                $txt = explode( 'TEMPLATE:', $token[1] );
+                if( count( $txt[1] ) >= 1 ) {
+
+                    $select_value = explode( '*/', $txt[1] );
+                    $use_sel_val = trim($select_value[0]);
+
+                    // found what we need; exit the token loop
+                    break;
+
+                }
+
+            }
+            // ------------------------------------------------------
+
+            // filter files to include
+            if( $filepath['extension'] == 'php' ) {
+                $out[ $value ] = $use_sel_val;
+            }
+
+        }
+
+        // Return an array of files (without the directory)
+        return $out;
+
+    }
+    
+}
+
+// PULL TEMPLATE FILES
+if( !function_exists( 'setup_starter_list_all_templates' ) ) {
+
+    function setup_starter_list_all_templates() {
+        
+        // set directory
+        $tar_dir = plugin_dir_path( __FILE__ )."templates";
+        
+        // get an array of files from $tar_dir
+        $dir_file = setup_starter_pull_files( $tar_dir );
+        foreach ($dir_file as $d_file) {
+        
+            // get the tokens
+            $tokens = token_get_all( file_get_contents( $tar_dir.'/'.$d_file ) );
+
+            foreach($tokens as $token) {
+                
+                //if($token[0] == T_COMMENT || $token[0] == T_DOC_COMMENT) {
+                if( $token[0] == T_DOC_COMMENT ) {
+
+                    // remove unnecessary characters
+                    $t_name = trim( str_replace( '*', '', str_replace( '/', '', $token[1] ) ) );
+                    
+                }
+
+            }
+
+            // split the line to get the template name from "TEMPLATE NAME: Feature Display All"
+            $et_name = explode( ':', $t_name );
+
+            // trim( $et_name[0] ) contains "TEMPLATE NAME"
+            // trim( $et_name[1] ) contains the actual template name
+            // $d_file is the PHP file
+            $out[] = array( $d_file => trim( $et_name[1] ) );
+
+        }
+
+        return $out;
+
+    }
+
 }
