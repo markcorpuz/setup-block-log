@@ -15,3 +15,5 @@ This template is defined on the setup-log plugin itself called view-one.php. It'
 echo '<div class="item log date">' . get_field( 'log_date' ) . '</div>';
 
 ?><hr /><?php
+
+// EOF

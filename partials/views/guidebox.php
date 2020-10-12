@@ -14,3 +14,5 @@ This template is defined on the setup-log plugin itself called guidebox.php but 
 echo setup_be_log_date();
 
 ?><hr /><?php
+
+// EOF

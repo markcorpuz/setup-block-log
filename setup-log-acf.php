@@ -95,27 +95,42 @@ function acf_setup_load_template_choices( $field ) {
     $field['choices'] = array();
 
     //Loop through whatever data you are using, and assign a key/value
-    foreach($data_from_database as $field_key => $field_value) {
-        $field['choices'][$field_key] = $field_value;
+    if( is_array( $data_from_database ) ) {
+
+        foreach( $data_from_database as $field_key => $field_value ) {
+            $field['choices'][$field_key] = $field_value;
+        }
+
+        return $field;
+
     }
-    return $field;
     
 }
 
 
 /**
- * Get VIEW template
+ * Get VIEW template | this function is called by SETUP-LOG-FLEX.PHP found in PARTIALS/BLOCKS folder
  */
 function setup_acf_pull_view_template( $layout ) {
 
-    ob_start();
+    $layout_file = plugin_dir_path( __FILE__ ).'partials/views/'.$layout;
 
-    include plugin_dir_path( __FILE__ ).'partials/views/'.$layout;
+    if( is_file( $layout_file ) ) {
 
-    $new_output = ob_get_clean();
-        
-    if( !empty( $new_output ) )
-        $output = $new_output;
+        ob_start();
+
+        include $layout_file;
+
+        $new_output = ob_get_clean();
+            
+        if( !empty( $new_output ) )
+            $output = $new_output;
+
+    } else {
+
+        $output = FALSE;
+
+    }
 
     return $output;
 
@@ -134,6 +149,8 @@ function textsss() {
 if( !function_exists( 'setup_pull_view_files' ) ) {
 
     function setup_pull_view_files( $directory ) {
+
+        $out = array();
         
         // get all files inside the directory but remove unnecessary directories
         $ss_plug_dir = array_diff( scandir( $directory ), array( '..', '.' ) );
@@ -141,14 +158,15 @@ if( !function_exists( 'setup_pull_view_files' ) ) {
         foreach ($ss_plug_dir as $value) {
             
             // combine directory and filename
-            $file = $directory.'/'.$value;
-            
-            // get details of the file
-            $filepath = pathinfo( $file );
-            
-            // ------------------------------------------------------
-            $source = file_get_contents( $file );
+            $file = basename( $directory.$value, ".php" );
 
+            // get details of the file
+            //$filepath = pathinfo( $file );
+            //echo '<h1>'.basename( $file, ".php" ).'</h1>';
+            // ------------------------------------------------------
+            /*$source = file_get_contents( $file );
+            var_dump($source);
+            echo '<hr />';
             $tokens = token_get_all( $source );
             $comment = array(
                 T_COMMENT,      // All comments since PHP5
@@ -163,22 +181,28 @@ if( !function_exists( 'setup_pull_view_files' ) ) {
 
                 // Do something with the comment
                 $txt = explode( 'TEMPLATE:', $token[1] );
-                if( count( $txt[1] ) >= 1 ) {
+                if( is_array( $txt ) ) {
 
-                    $select_value = explode( '*/', $txt[1] );
-                    $use_sel_val = trim($select_value[0]);
+                    if( is_array( $txt[ 1 ] ) ) {
+                        if( count( $txt[ 1 ] ) >= 1 ) {
 
-                    // found what we need; exit the token loop
-                    break;
+                            $select_value = explode( '* /', $txt[ 1 ] );
+                            $use_sel_val = trim($select_value[ 0 ]);
+
+                            // found what we need; exit the token loop
+                            break;
+
+                        }
+                    }
 
                 }
 
-            }
+            }*/
             // ------------------------------------------------------
 
             // filter files to include
-            if( $filepath['extension'] == 'php' ) {
-                $out[ $value ] = $use_sel_val;
+            if( $file ) {
+                $out[ $value ] = $file;
             }
 
         }
