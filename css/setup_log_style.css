@@ -1,4 +1,68 @@
-/* SETUP-LOG | 1.0.6 | 200910 | assets/scss/main.scss
+/* SETUP-LOG | 1.0.6 | 201012 | assets/scss/main.scss
+---------------------------------------------------------------------------------------------------- */
+/* SETUP-BE | 1.0.3 | 201012 | assets/scss/partials/base.scss
+---------------------------------------------------------------------------------------------------- */
+/*  SETUP-BE | 1.0.0 | 200408 | setup-be/modules/setup-be-100/brand-color.scss
+---------------------------------------------------------------------------------------------------- */
+/**
+ * Brand Color
+ *
+ */
+/*  SETUP-BE | 1.0.0 | 200408 | setup-be/modules/setup-be-100/helpers.scss
+---------------------------------------------------------------------------------------------------- */
+/**
+ * Button Reset
+ *
+ */
+/**
+ * Grid, Center Last
+ *
+ */
+/**
+ * Margin, No Edge
+ * Removes left margin from first item, right margin from last item
+ */
+/**
+ * Icon Position
+ *
+ */
+/**
+ * Block Cover
+ * Creates a block that covers the full width/height of parent div. Typically used on a :before pseudo element
+ */
+/**
+ * Placeholder Color
+ *
+ */
+/**
+ * Clearfix
+ *
+ */
+/**
+ * Font Sizes
+ *
+**/
+/**
+ * Columns
+ *
+ */
+/**
+ * Columns, Mobile
+ *
+ */
+/**
+ * Columns, Tablet
+ *
+ */
+/**
+ * Columns, Tablet Up
+ *
+ */
+/**
+ * Columns, Desktop
+ *
+ */
+/* SETUP-BE | 1.0.0 | 200408 | setup-be/modules/setup-be-100/base-styles.scss
 ---------------------------------------------------------------------------------------------------- */
 /* SETUP-LOG | 1.0.6 | 200917 | setup-be/block-custom/setup-log-106/log.scss
 ---------------------------------------------------------------------------------------------------- */
@@ -16,6 +80,53 @@
   box-shadow: 0 -8px 6px -6px rgba(0, 0, 0, 0.25);
 }
 
-.module.log {
-  border: 5px solid red;
+/* SETUP-LOG | 1.0.6 | 201012 | setup-be/block-custom/setup-log-106/guidebox-list.scss
+---------------------------------------------------------------------------------------------------- */
+.module.log.guidebox-list {
+  margin-bottom: 0.25rem;
+  -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.group.line {
+  background-color: #f3f3f3;
+}
+.module.log.guidebox-list.active .group.line {
+  background-color: #61bd4f;
+  color: white;
+}
+.module.log.guidebox-list.inactive .group.line {
+  background-color: #EEEEEE;
+  color: white;
+}
+.module.log.guidebox-list.urgent .group.line {
+  background-color: #FF0000;
+  color: white;
+}
+.module.log.guidebox-list.important .group.line {
+  background-color: #ff7f00;
+  color: white;
+}
+.module.log.guidebox-list.nonurgent .group.line {
+  background-color: #f2d600;
+  color: white;
+}
+
+.group.line .item.code,
+.group.line .item.date,
+.group.line .item.label,
+.group.line .item.user {
+  display: inline-block;
+  font-size: 0.875rem;
+}
+
+.group.info .item.title,
+.group.info .item.summary,
+.group.info .item.info {
+  font-size: 0.875rem;
+}
+
+.module.log.guidebox-list .item.title {
+  font-weight: 500;
 }
