@@ -20,18 +20,20 @@ $classes = array(
 
 ?>
 
-<div class="fontsize-tiny"><strong>START</strong></div>
-
 <?php echo '<div class="'.join( ' ', $classes ).'">'; ?>
 	<div class="module-wrap">
 		<div class="group line">
-			<?php
-			echo setup_be_log_code();
-			echo setup_be_log_date();
-			echo setup_be_log_label();
-			echo setup_be_log_user();
-			?>
-			<a class="item expand">Expand</a>
+			<div class="left">
+				<?php
+				echo setup_be_log_code();
+				echo setup_be_log_label();
+				echo setup_be_log_date();
+				echo setup_be_log_user();
+				?>
+			</div>
+			<div class="right">
+				<a class="item expand">+</a>
+			</div>
 		</div>
 		<div class="group info">
 			<?php 
@@ -48,7 +50,6 @@ $classes = array(
 	</div>
 </div>
 
-<div class="fontsize-tiny"><strong>END</strong></div>
 <?php
 
 // EOF

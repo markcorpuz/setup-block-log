@@ -90,35 +90,99 @@
 }
 
 .group.line {
+  display: grid;
+  grid-template-columns: 1fr auto;
   background-color: #f3f3f3;
+  padding-left: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border-left: 0.5rem solid #eee;
 }
 .module.log.guidebox-list.active .group.line {
-  background-color: #61bd4f;
-  color: white;
+  padding-left: 0.5rem;
+  border-left: 0.5rem solid #61bd4f;
 }
 .module.log.guidebox-list.inactive .group.line {
-  background-color: #EEEEEE;
-  color: white;
+  padding-left: 0.5rem;
+  border-left: 0.5rem solid #616161;
 }
 .module.log.guidebox-list.urgent .group.line {
-  background-color: #FF0000;
-  color: white;
+  padding-left: 0.5rem;
+  border-left: 0.5rem solid #FF0000;
 }
 .module.log.guidebox-list.important .group.line {
-  background-color: #ff7f00;
-  color: white;
+  padding-left: 0.5rem;
+  border-left: 0.5rem solid #ff7f00;
 }
 .module.log.guidebox-list.nonurgent .group.line {
-  background-color: #f2d600;
-  color: white;
+  padding-left: 0.5rem;
+  border-left: 0.5rem solid #f2d600;
+}
+.group.line .left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.group.line .right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .group.line .item.code,
 .group.line .item.date,
 .group.line .item.label,
-.group.line .item.user {
-  display: inline-block;
+.group.line .item.user,
+.group.line .item.expand {
   font-size: 0.875rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.group.line .item.code {
+  padding: 4px;
+  border-radius: 4px;
+  line-height: 1;
+  font-size: 0.5rem;
+  background-color: #999;
+  color: #eee;
+}
+
+.group.line .item.date {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  line-height: 1;
+  font-size: 0.5rem;
+}
+
+.group.line .item.user {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  line-height: 1;
+  font-size: 0.5rem;
+}
+
+.group.line .item.expand {
+  padding: 4px;
+  border-radius: 4px;
+  line-height: 1;
+  font-size: 0.5rem;
+  background-color: #fff;
+  color: #666;
+}
+
+.group.line a.item.expand {
+  text-decoration: none;
+}
+
+.group.line a.item.expand:hover {
+  background-color: #666;
+  color: #fff;
+  cursor: pointer;
+}
+
+.module.log.guidebox-list .group.info {
+  padding: 1rem;
 }
 
 .group.info .item.title,
