@@ -22,8 +22,16 @@ function setup_log_fn() {
 // Enqueue Style
 function setup_log_function() {
 
+	// 'jquery-effects-core', 'jquery-effects-fade', 'jquery-ui-accordion'
+	$scripts = array( 'jquery-ui-core', 'jquery-effects-slide' );
+	foreach ( $scripts as $value ) {
+		if( !wp_script_is( $value, 'enqueued' ) ) {
+        	wp_enqueue_script( $value );
+    	}
+	}
+
     // last arg is true - will be placed before </body>
-    //wp_enqueue_script( 'spk_screensizer_js', plugins_url( 'js/asset.js', __FILE__ ), NULL, NULL, true );
+    wp_enqueue_script( 'setup_log_script', plugins_url( 'js/asset.js', __FILE__ ), NULL, NULL, TRUE );
 	
     // enqueue styles
     wp_enqueue_style( 'setup_log_style', plugins_url( 'css/setup_log_style.css', __FILE__ ) );
@@ -39,6 +47,6 @@ function setup_log_function() {
 if ( !is_admin() ) {
 
     // ENQUEUE SCRIPTS
-    add_action( 'wp_enqueue_scripts', 'setup_log_function' );
+    add_action( 'wp_enqueue_scripts', 'setup_log_function', 20 );
 
 }

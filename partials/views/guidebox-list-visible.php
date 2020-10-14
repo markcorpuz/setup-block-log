@@ -1,16 +1,18 @@
 <?php
 
 /*
- * TEMPLATE: GUIDEBOX-LIST
+ * TEMPLATE: GUIDEBOX-LIST-VISIBLE
  */
 
-global $block_css;
+global $block_css, $block_counter;
+
+// increment counter
+$block_counter ++ ;
 
 $classes = array(
 	'module',
 	'log',
 	'guidebox-list',
-	'jake',
 );
 
 // Include CSS selectors manually entered thru wp-admin
@@ -31,21 +33,23 @@ $classes = array(
 				echo setup_be_log_user();
 				?>
 			</div>
-			<div class="right">
-				<a class="item expand">+</a>
+			<div class="right"><?php
+				echo '<a class="item expand" id="group_line_expander__'.$block_counter.'">-</a>';
+			?></div>
+		</div><?php
+		// THIS ENTIRE DIV WILL BE VISIBLE ON PAGE LOAD
+		echo '<div id="group_info__'.$block_counter.'">';
+			?><div class="group info"><?php
+				echo setup_be_log_title();
+				echo setup_be_log_summary();
+				echo setup_be_log_info();
+				?>
 			</div>
-		</div>
-		<div class="group info">
-			<?php 
-			echo setup_be_log_title();
-			echo setup_be_log_summary();
-			echo setup_be_log_info();
-			?>
-		</div>
-		<div class="group detail">
-			<?php
-			echo '<InnerBlocks />';
-			?>	
+			<div class="group detail">
+				<?php
+				echo '<InnerBlocks />';
+				?>	
+			</div>
 		</div>
 	</div>
 </div>

@@ -194,3 +194,7 @@
 .module.log.guidebox-list .item.title {
   font-weight: 500;
 }
+
+.hidden {
+  display:none;
+}
