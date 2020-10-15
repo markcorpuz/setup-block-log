@@ -80,8 +80,12 @@
   box-shadow: 0 -8px 6px -6px rgba(0, 0, 0, 0.25);
 }
 
-/* SETUP-LOG | 1.0.6 | 201012 | setup-be/block-custom/setup-log-106/guidebox-list.scss
+/* SETUP-LOG | 1.0.6 | 201014 | setup-be/block-custom/setup-log-106/guidebox-list.scss
 ---------------------------------------------------------------------------------------------------- */
+.hide {
+  display: none;
+}
+
 .module.log.guidebox-list {
   margin-bottom: 0.25rem;
   -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15);
@@ -103,7 +107,7 @@
   margin-left: 2rem;
 }
 
-.group.line {
+.group.bar {
   display: grid;
   grid-template-columns: 1fr auto;
   background-color: #f3f3f3;
@@ -112,73 +116,73 @@
   padding-bottom: 0.25rem;
   border-left: 0.5rem solid #eee;
 }
-.module.log.guidebox-list.guidebox-line .group.line {
+.module.log.guidebox-list.guidebox-bar .group.bar {
   grid-template-columns: 1fr;
 }
-.module.log.guidebox-list.default .group.line {
+.module.log.guidebox-list.default .group.bar {
   padding-left: 0.5rem;
   border-left: 0.5rem solid #eee;
 }
-.module.log.guidebox-list .module.log.guidebox-list.default .group.line {
+.module.log.guidebox-list .module.log.guidebox-list.default .group.bar {
   border-left: 0.5rem solid #eee;
 }
-.module.log.guidebox-list.active .group.line {
+.module.log.guidebox-list.active .group.bar {
   padding-left: 0.5rem;
   border-left: 0.5rem solid #61bd4f;
 }
-.module.log.guidebox-list .module.log.guidebox-list.active .group.line {
+.module.log.guidebox-list .module.log.guidebox-list.active .group.bar {
   border-left: 0.5rem solid #61bd4f;
 }
-.module.log.guidebox-list.inactive .group.line {
+.module.log.guidebox-list.inactive .group.bar {
   padding-left: 0.5rem;
   border-left: 0.5rem solid #616161;
 }
-.module.log.guidebox-list .module.log.guidebox-list.inactive .group.line {
+.module.log.guidebox-list .module.log.guidebox-list.inactive .group.bar {
   border-left: 0.5rem solid #616161;
 }
-.module.log.guidebox-list.urgent .group.line {
+.module.log.guidebox-list.urgent .group.bar {
   padding-left: 0.5rem;
   border-left: 0.5rem solid #FF0000;
 }
-.module.log.guidebox-list .module.log.guidebox-list.urgent .group.line {
+.module.log.guidebox-list .module.log.guidebox-list.urgent .group.bar {
   border-left: 0.5rem solid #FF0000;
 }
-.module.log.guidebox-list.important .group.line {
+.module.log.guidebox-list.important .group.bar {
   padding-left: 0.5rem;
   border-left: 0.5rem solid #ff7f00;
 }
-.module.log.guidebox-list .module.log.guidebox-list.important .group.line {
+.module.log.guidebox-list .module.log.guidebox-list.important .group.bar {
   border-left: 0.5rem solid #ff7f00;
 }
-.module.log.guidebox-list.nonurgent .group.line {
+.module.log.guidebox-list.nonurgent .group.bar {
   padding-left: 0.5rem;
   border-left: 0.5rem solid #f2d600;
 }
-.module.log.guidebox-list .module.log.guidebox-list.nonurgent .group.line {
+.module.log.guidebox-list .module.log.guidebox-list.nonurgent .group.bar {
   border-left: 0.5rem solid #f2d600;
 }
-.group.line .left {
+.group.bar .left {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
-.group.line .right {
+.group.bar .right {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
 
-.group.line .item.code,
-.group.line .item.date,
-.group.line .item.label,
-.group.line .item.user,
-.group.line .item.expand {
+.group.bar .item.code,
+.group.bar .item.date,
+.group.bar .item.label,
+.group.bar .item.user,
+.group.bar .item.expand {
   font-size: 0.875rem;
   font-weight: 500;
   margin-right: 0.5rem;
 }
 
-.group.line .item.code {
+.group.bar .item.code {
   padding: 4px;
   border-radius: 4px;
   line-height: 1;
@@ -187,21 +191,21 @@
   color: #eee;
 }
 
-.group.line .item.date {
+.group.bar .item.date {
   padding-top: 4px;
   padding-bottom: 4px;
   line-height: 1;
   font-size: 0.5rem;
 }
 
-.group.line .item.user {
+.group.bar .item.user {
   padding-top: 4px;
   padding-bottom: 4px;
   line-height: 1;
   font-size: 0.5rem;
 }
 
-.group.line .item.expand {
+.group.bar .item.expand {
   padding: 4px;
   border-radius: 4px;
   line-height: 1;
@@ -212,11 +216,11 @@
   text-align: center;
 }
 
-.group.line a.item.expand {
+.group.bar a.item.expand {
   text-decoration: none;
 }
 
-.group.line a.item.expand:hover {
+.group.bar a.item.expand:hover {
   background-color: #666;
   color: #fff;
   cursor: pointer;

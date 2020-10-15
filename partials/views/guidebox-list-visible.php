@@ -24,7 +24,7 @@ $classes = array(
 
 <?php echo '<div class="'.join( ' ', $classes ).'">'; ?>
 	<div class="module-wrap">
-		<div class="group line">
+		<div class="group bar">
 			<div class="left">
 				<?php
 				echo setup_be_log_code();

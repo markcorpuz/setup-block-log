@@ -24,7 +24,7 @@ $classes = array(
 
 <?php echo '<div class="'.join( ' ', $classes ).'">'; ?>
 	<div class="module-wrap">
-		<div class="group line">
+		<div class="group bar">
 			<div class="left">
 				<?php
 				echo setup_be_log_code();
@@ -38,7 +38,7 @@ $classes = array(
 			?></div>
 		</div><?php
 		// THIS ENTIRE DIV WILL BE HIDDEN ON PAGE LOAD
-		echo '<div class="hidden" id="group_info__'.$block_counter.'">';
+		echo '<div class="hide" id="group_info__'.$block_counter.'">';
 			?><div class="group info"><?php
 				echo setup_be_log_title();
 				echo setup_be_log_summary();

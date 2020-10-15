@@ -1,7 +1,7 @@
 <?php
 
 /*
- * TEMPLATE: GUIDEBOX-LIST-BAR
+ * TEMPLATE: GUIDEBOX-LIST-BLOCK-HIDDEN
  */
 
 global $block_css, $block_counter;
@@ -13,7 +13,6 @@ $classes = array(
 	'module',
 	'log',
 	'guidebox-list',
-	'guidebox-bar',
 );
 
 // Include CSS selectors manually entered thru wp-admin
@@ -35,10 +34,20 @@ $classes = array(
 				?>
 			</div>
 			<div class="right"><?php
-				echo setup_be_log_title();
-				echo setup_be_log_summary();
-				echo setup_be_log_info();
+				echo '<a class="item expand" id="group_line_expander__'.$block_counter.'">+</a>';
 			?></div>
+		</div><?php
+		// THIS ENTIRE DIV WILL BE HIDDEN ON PAGE LOAD
+		echo '<div class="hide" id="group_info__'.$block_counter.'">';
+			?>
+			<div class="group detail">
+				<?php
+				//echo setup_be_log_title();
+				//echo setup_be_log_summary();
+				//echo setup_be_log_info();
+				echo '<InnerBlocks />';
+				?>	
+			</div>
 		</div>
 	</div>
 </div>

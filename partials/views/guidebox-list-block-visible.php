@@ -1,7 +1,7 @@
 <?php
 
 /*
- * TEMPLATE: GUIDEBOX-LIST-INNERBLOCK
+ * TEMPLATE: GUIDEBOX-LIST-BLOCK-VISIBLE
  */
 
 global $block_css, $block_counter;
@@ -24,7 +24,7 @@ $classes = array(
 
 <?php echo '<div class="'.join( ' ', $classes ).'">'; ?>
 	<div class="module-wrap">
-		<div class="group line">
+		<div class="group bar">
 			<div class="left">
 				<?php
 				echo setup_be_log_code();
@@ -34,16 +34,17 @@ $classes = array(
 				?>
 			</div>
 			<div class="right"><?php
-				echo '<a class="item expand" id="group_line_expander__'.$block_counter.'">+</a>';
+				echo '<a class="item expand" id="group_line_expander__'.$block_counter.'">-</a>';
 			?></div>
 		</div><?php
-		// THIS ENTIRE DIV WILL BE HIDDEN ON PAGE LOAD
-		echo '<div class="hidden" id="group_info__'.$block_counter.'">';
-			?><div class="group detail">
+		// THIS ENTIRE DIV WILL BE VISIBLE ON PAGE LOAD
+		echo '<div id="group_info__'.$block_counter.'">';
+			?>
+			<div class="group detail">
 				<?php
-				echo setup_be_log_title();
-				echo setup_be_log_summary();
-				echo setup_be_log_info();
+				//echo setup_be_log_title();
+				//echo setup_be_log_summary();
+				//echo setup_be_log_info();
 				echo '<InnerBlocks />';
 				?>	
 			</div>
