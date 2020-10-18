@@ -46,6 +46,16 @@ function setup_log_block_acf_init() {
             ],
         ),
 
+        'pull_field' => array(
+            'name'                  => 'pull_field',
+            'title'                 => __('Pull Field'),
+            'render_template'       => plugin_dir_path( __FILE__ ).'partials/blocks/setup-pull-field.php',
+            'category'              => 'setup',
+            'icon'                  => 'admin-links',
+            'mode'                  => 'edit',
+            'keywords'              => array( 'pull', 'get' ),
+        ),
+
     );
 
     // Bail out if function doesn’t exist or no blocks available to register.
@@ -75,6 +85,7 @@ function setup_log_block_acf_init() {
  *
  */
 add_filter( 'acf/load_field/name=log_layout', 'acf_setup_load_template_choices' );
+add_filter( 'acf/load_field/name=pull_layout', 'acf_setup_load_template_choices' );
 function acf_setup_load_template_choices( $field ) {
     
     // get all files found in VIEWS folder
@@ -111,10 +122,22 @@ function acf_setup_load_template_choices( $field ) {
 /**
  * Get VIEW template | this function is called by SETUP-LOG-FLEX.PHP found in PARTIALS/BLOCKS folder
  */
-function setup_acf_pull_view_template( $layout ) {
+function setup_acf_pull_view_template( $layout, $args = FALSE ) {
 
     $layout_file = plugin_dir_path( __FILE__ ).'partials/views/'.$layout;
+    
+    if( $args ) {
 
+        if( array_key_exists( 'id', $args ) ) {
+
+            global $pid;
+
+            $pid = $args[ 'id' ];
+
+        }
+        
+    }
+    
     if( is_file( $layout_file ) ) {
 
         ob_start();
