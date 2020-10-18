@@ -1,6 +1,6 @@
 /* SETUP-LOG | 1.0.6 | 201012 | assets/scss/main.scss
 ---------------------------------------------------------------------------------------------------- */
-/* SETUP-BE | 1.0.3 | 201012 | assets/scss/partials/base.scss
+/* SETUP-BE | 1.0.3 | 201016 | assets/scss/partials/base.scss
 ---------------------------------------------------------------------------------------------------- */
 /*  SETUP-BE | 1.0.0 | 200408 | setup-be/modules/setup-be-100/brand-color.scss
 ---------------------------------------------------------------------------------------------------- */
@@ -66,176 +66,245 @@
 ---------------------------------------------------------------------------------------------------- */
 /* SETUP-LOG | 1.0.6 | 200917 | setup-be/block-custom/setup-log-106/log.scss
 ---------------------------------------------------------------------------------------------------- */
-.module.log.log-box {
-  padding: 1rem;
-  -webkit-box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.15);
-  box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.15);
-}
-
-.module.log.log-prefix {
-  padding-top: 1rem;
-  -webkit-box-shadow: 0 -8px 6px -6px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 -8px 6px -6px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 -8px 6px -6px rgba(0, 0, 0, 0.25);
-}
-
-/* SETUP-LOG | 1.0.6 | 201014 | setup-be/block-custom/setup-log-106/guidebox-list.scss
----------------------------------------------------------------------------------------------------- */
 .hide {
   display: none;
 }
 
-.module.log.guidebox-list {
+.module.log,
+.module.log.default {
   margin-bottom: 0.25rem;
   -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-.module.log.guidebox-list.basic {
-  margin-bottom: 0.25rem;
+.module.log.basic,
+.module.log.noshadow {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
 
-.module.log.guidebox-list.level1 {
+.module.log.line {
+  border-top: 1px solid #f3f3f3;
+}
+
+.module.log.sideline {
+  border-left: 1px solid #f3f3f3;
+}
+
+.module.log.box {
+  border: 1px solid #f3f3f3;
+}
+
+.module.log.highlight {
+  background-color: #f3f3f3;
+}
+
+.module.log.level1 {
   margin-left: 1rem;
 }
-.module.log.guidebox-list.level2 {
+
+.module.log.level2 {
   margin-left: 2rem;
 }
 
-.group.bar {
+.module.log .group.bar {
   display: grid;
   grid-template-columns: 1fr auto;
-  background-color: #f3f3f3;
-  padding-left: 0.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  border-left: 0.5rem solid #eee;
+  grid-gap: 0.5rem;
 }
-.module.log.guidebox-list.guidebox-bar .group.bar {
+.module.log .group.bar .left, .module.log .group.bar .right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.module.log.bar .group.bar {
+  display: grid;
   grid-template-columns: 1fr;
 }
-.module.log.guidebox-list.default .group.bar {
+.module.log .group.bar, .module.log.default .group.bar {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-right: 0.5rem;
   padding-left: 0.5rem;
   border-left: 0.5rem solid #eee;
 }
-.module.log.guidebox-list .module.log.guidebox-list.default .group.bar {
+.module.log.sideline .group.bar {
+  border-left: 7px;
+}
+.module.log.default .group.bar {
   border-left: 0.5rem solid #eee;
 }
-.module.log.guidebox-list.active .group.bar {
-  padding-left: 0.5rem;
+.module.log.sideline.default .group.bar {
+  border-left: 7px solid #eee;
+}
+.module.log.active .group.bar {
   border-left: 0.5rem solid #61bd4f;
 }
-.module.log.guidebox-list .module.log.guidebox-list.active .group.bar {
-  border-left: 0.5rem solid #61bd4f;
+.module.log.sideline.active .group.bar {
+  border-left: 7px solid #61bd4f;
 }
-.module.log.guidebox-list.inactive .group.bar {
-  padding-left: 0.5rem;
+.module.log.inactive .group.bar {
   border-left: 0.5rem solid #616161;
 }
-.module.log.guidebox-list .module.log.guidebox-list.inactive .group.bar {
-  border-left: 0.5rem solid #616161;
+.module.log.sideline.inactive .group.bar {
+  border-left: 7px solid #616161;
 }
-.module.log.guidebox-list.urgent .group.bar {
-  padding-left: 0.5rem;
+.module.log.urgent .group.bar {
   border-left: 0.5rem solid #FF0000;
 }
-.module.log.guidebox-list .module.log.guidebox-list.urgent .group.bar {
-  border-left: 0.5rem solid #FF0000;
+.module.log.sideline.urgent .group.bar {
+  border-left: 7px solid #FF0000;
 }
-.module.log.guidebox-list.important .group.bar {
-  padding-left: 0.5rem;
+.module.log.important .group.bar {
   border-left: 0.5rem solid #ff7f00;
 }
-.module.log.guidebox-list .module.log.guidebox-list.important .group.bar {
-  border-left: 0.5rem solid #ff7f00;
+.module.log.sideline.important .group.bar {
+  border-left: 7px solid #ff7f00;
 }
-.module.log.guidebox-list.nonurgent .group.bar {
-  padding-left: 0.5rem;
+.module.log.nonurgent .group.bar {
   border-left: 0.5rem solid #f2d600;
 }
-.module.log.guidebox-list .module.log.guidebox-list.nonurgent .group.bar {
-  border-left: 0.5rem solid #f2d600;
+.module.log.sideline.nonurgent .group.bar {
+  border-left: 7px solid #f2d600;
 }
-.group.bar .left {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+.module.log.guide .group.bar {
+  border-left: 0.5rem solid #660099;
 }
-.group.bar .right {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+.module.log.sideline.guide .group.bar {
+  border-left: 7px solid #660099;
+}
+.module.log.project .group.bar {
+  border-left: 0.5rem solid #0080ff;
+}
+.module.log.sideline.project .group.bar {
+  border-left: 7px solid #0080ff;
+}
+.module.log.info .group.bar {
+  border-left: 0.5rem solid #00ffff;
+}
+.module.log.sideline.info .group.bar {
+  border-left: 7px solid #00ffff;
+}
+.module.log .group.bar, .module.log.default .group.bar, .module.log.highlight .group.bar {
+  background-color: #f3f3f3;
+}
+.module.log.highlight.default .group.bar {
+  background-color: #eee;
+}
+.module.log .module.log.highlight.default .group.bar {
+  background-color: #eee;
+}
+.module.log.highlight.active .group.bar {
+  background-color: #61bd4f;
+}
+.module.log .module.log.highlight.active .group.bar {
+  background-color: #61bd4f;
+}
+.module.log.highlight.inactive .group.bar {
+  background-color: #616161;
+}
+.module.log .module.log.highlight.inactive .group.bar {
+  background-color: #616161;
+}
+.module.log.highlight.urgent .group.bar {
+  background-color: #FF0000;
+}
+.module.log .module.log.highlight.urgent .group.bar {
+  background-color: #FF0000;
+}
+.module.log.highlight.important .group.bar {
+  background-color: #ff7f00;
+}
+.module.log .module.log.highlight.important .group.bar {
+  background-color: #ff7f00;
+}
+.module.log.highlight.nonurgent .group.bar {
+  background-color: #f2d600;
+}
+.module.log .module.log.highlight.nonurgent .group.bar {
+  background-color: #f2d600;
+}
+.module.log.highlight.guide .group.bar {
+  background-color: #660099;
+}
+.module.log .module.log.highlight.guide .group.bar {
+  background-color: #660099;
+}
+.module.log.highlight.project .group.bar {
+  background-color: #0080ff;
+}
+.module.log .module.log.highlight.project .group.bar {
+  background-color: #0080ff;
+}
+.module.log.highlight.info .group.bar {
+  background-color: #00ffff;
+}
+.module.log .module.log.highlight.info .group.bar {
+  background-color: #00ffff;
+}
+.module.log.basic .group.bar, .module.log.nobgcolor .group.bar {
+  background-color: transparent;
 }
 
-.group.bar .item.code,
-.group.bar .item.date,
-.group.bar .item.label,
-.group.bar .item.user,
-.group.bar .item.expand {
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-right: 0.5rem;
-}
-
-.group.bar .item.code {
-  padding: 4px;
-  border-radius: 4px;
-  line-height: 1;
-  font-size: 0.5rem;
-  background-color: #999;
-  color: #eee;
-}
-
-.group.bar .item.date {
-  padding-top: 4px;
-  padding-bottom: 4px;
-  line-height: 1;
-  font-size: 0.5rem;
-}
-
-.group.bar .item.user {
-  padding-top: 4px;
-  padding-bottom: 4px;
-  line-height: 1;
-  font-size: 0.5rem;
-}
-
-.group.bar .item.expand {
-  padding: 4px;
-  border-radius: 4px;
-  line-height: 1;
-  font-size: 0.5rem;
-  background-color: #fff;
-  color: #666;
-  width: 1rem;
-  text-align: center;
-}
-
-.group.bar a.item.expand {
-  text-decoration: none;
-}
-
-.group.bar a.item.expand:hover {
-  background-color: #666;
-  color: #fff;
-  cursor: pointer;
-}
-
-.module.log.guidebox-list .group.info {
+.module.log .group.info, .module.log.default .group.info {
   padding: 1rem;
 }
 
-.group.info .item.title,
-.group.info .item.summary,
-.group.info .item.info {
-  font-size: 0.875rem;
+.module.log .group.bar .item.date,
+.module.log .group.bar .item.time,
+.module.log .group.bar .item.code,
+.module.log .group.bar .item.label,
+.module.log .group.bar .item.title,
+.module.log .group.bar .item.summary,
+.module.log .group.bar .item.info,
+.module.log .group.bar .item.user {
+  font-size: 0.5rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+.module.log .group.bar .item.code {
+  background-color: #999;
+  color: #eee;
+  padding: 4px;
+  border-radius: 4px;
+  line-height: 1;
 }
 
-.module.log.guidebox-list .item.title {
-  font-weight: 500;
+.module.log .group.bar .item.expand {
+  font-size: 0.5rem;
+  font-weight: 700;
+  background-color: #e3e3e3;
+  color: #999;
+  padding: 2px;
+  border-radius: 2px;
+  line-height: 1;
+  width: 12px;
+  text-align: center;
+}
+
+.module.log .group.bar a.item.expand {
+  text-decoration: none;
+}
+
+.module.log .group.bar a.item.expand:hover {
+  background-color: #999;
+  color: #e3e3e3;
+  cursor: pointer;
+}
+
+.module.log .group.bar .item.date,
+.module.log .group.bar .item.time,
+.module.log .group.bar .item.user {
+  padding: 4px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.module.log .group.bar .item.label,
+.module.log .group.bar .item.title,
+.module.log .group.bar .item.summary,
+.module.log .group.bar .item.info {
+  font-size: 0.875rem;
 }
