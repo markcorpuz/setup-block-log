@@ -38,7 +38,7 @@ $classes = array(
 			?></div>
 		</div><?php
 		// THIS ENTIRE DIV WILL BE HIDDEN ON PAGE LOAD
-		echo '<div class="hide info" id="group_info__'.$block_counter.'">';
+		echo '<div class="group info hide" id="group_info__'.$block_counter.'">';
 			?><div class="group innerblock">
 				<?php
 				echo '<InnerBlocks />';

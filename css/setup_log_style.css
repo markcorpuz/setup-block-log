@@ -190,65 +190,60 @@
 .module.log .group.bar, .module.log.default .group.bar, .module.log.highlight .group.bar {
   background-color: #f3f3f3;
 }
-.module.log.highlight.default .group.bar {
+.module.log.highlight.default .group.bar, .module.log .module.log.highlight.default .group.bar {
   background-color: #eee;
+  color: #fff;
 }
-.module.log .module.log.highlight.default .group.bar {
-  background-color: #eee;
-}
-.module.log.highlight.active .group.bar {
+.module.log.highlight.active .group.bar, .module.log .module.log.highlight.active .group.bar {
   background-color: #61bd4f;
+  color: #fff;
 }
-.module.log .module.log.highlight.active .group.bar {
-  background-color: #61bd4f;
-}
-.module.log.highlight.inactive .group.bar {
+.module.log.highlight.inactive .group.bar, .module.log .module.log.highlight.inactive .group.bar {
   background-color: #616161;
+  color: #fff;
 }
-.module.log .module.log.highlight.inactive .group.bar {
-  background-color: #616161;
-}
-.module.log.highlight.urgent .group.bar {
+.module.log.highlight.urgent .group.bar, .module.log .module.log.highlight.urgent .group.bar {
   background-color: #FF0000;
+  color: #fff;
 }
-.module.log .module.log.highlight.urgent .group.bar {
-  background-color: #FF0000;
-}
-.module.log.highlight.important .group.bar {
+.module.log.highlight.important .group.bar, .module.log .module.log.highlight.important .group.bar {
   background-color: #ff7f00;
+  color: #fff;
 }
-.module.log .module.log.highlight.important .group.bar {
-  background-color: #ff7f00;
-}
-.module.log.highlight.nonurgent .group.bar {
+.module.log.highlight.nonurgent .group.bar, .module.log .module.log.highlight.nonurgent .group.bar {
   background-color: #f2d600;
+  color: #fff;
 }
-.module.log .module.log.highlight.nonurgent .group.bar {
-  background-color: #f2d600;
-}
-.module.log.highlight.guide .group.bar {
+.module.log.highlight.guide .group.bar, .module.log .module.log.highlight.guide .group.bar {
   background-color: #660099;
+  color: #fff;
 }
-.module.log .module.log.highlight.guide .group.bar {
-  background-color: #660099;
-}
-.module.log.highlight.project .group.bar {
+.module.log.highlight.project .group.bar, .module.log .module.log.highlight.project .group.bar {
   background-color: #0080ff;
+  color: #fff;
 }
-.module.log .module.log.highlight.project .group.bar {
-  background-color: #0080ff;
-}
-.module.log.highlight.info .group.bar {
+.module.log.highlight.info .group.bar, .module.log .module.log.highlight.info .group.bar {
   background-color: #00ffff;
-}
-.module.log .module.log.highlight.info .group.bar {
-  background-color: #00ffff;
+  color: #fff;
 }
 .module.log.basic .group.bar, .module.log.nobgcolor .group.bar {
   background-color: transparent;
 }
 
-.module.log .group.info, .module.log.default .group.info {
+.module.log .group.summary, .module.log.default .group.summary {
+  padding: 1rem;
+}
+.module.log.padding-zero .group.summary, .module.log.default.padding-zero .group.summary, .module.log.padding-zero-summary .group.summary {
+  padding: 0;
+}
+
+.module.log .group.innerblock, .module.log.default .group.innerblock {
+  padding: 0;
+}
+.module.log.padding-zero .group.innerblock, .module.log.default.padding-zero .group.innerblock, .module.log.default.padding-zero-innerblock .group.innerblock {
+  padding: 0;
+}
+.module.log.default.padding-innerblock .group.innerblock {
   padding: 1rem;
 }
 
@@ -270,6 +265,42 @@
   padding: 4px;
   border-radius: 4px;
   line-height: 1;
+}
+.module.log.highlight.default .item.code, .module.log .module.log.highlight.default .item.code {
+  background-color: #fff;
+  color: #eee;
+}
+.module.log.highlight.active .item.code, .module.log .module.log.highlight.active .item.code {
+  background-color: #fff;
+  color: #61bd4f;
+}
+.module.log.highlight.inactive .item.code, .module.log .module.log.highlight.inactive .item.code {
+  background-color: #fff;
+  color: #616161;
+}
+.module.log.highlight.urgent .item.code, .module.log .module.log.highlight.urgent .item.code {
+  background-color: #fff;
+  color: #FF0000;
+}
+.module.log.highlight.important .item.code, .module.log .module.log.highlight.important .item.code {
+  background-color: #fff;
+  color: #ff7f00;
+}
+.module.log.highlight.nonurgent .item.code, .module.log .module.log.highlight.nonurgent .item.code {
+  background-color: #fff;
+  color: #f2d600;
+}
+.module.log.highlight.guide .item.code, .module.log .module.log.highlight.guide .item.code {
+  background-color: #fff;
+  color: #660099;
+}
+.module.log.highlight.project .item.code, .module.log .module.log.highlight.project .item.code {
+  background-color: #fff;
+  color: #0080ff;
+}
+.module.log.highlight.info .item.code, .module.log .module.log.highlight.info .item.code {
+  background-color: #fff;
+  color: #00ffff;
 }
 
 .module.log .group.bar .item.expand {
