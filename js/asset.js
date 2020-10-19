@@ -13,7 +13,8 @@
 				$( this ).text( '+' );
 			}
 
-			$( '#group_info__' + SlogID[ 1 ] ).toggle( 'fast' );
+			//$( '#group_info__' + SlogID[ 1 ] ).toggle( 'fast' );
+			$( '#group_info__' + SlogID[ 1 ] ).slideToggle( 'medium' );
 
 		});
 

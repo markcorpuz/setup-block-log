@@ -14,15 +14,16 @@ $classes = array_merge( $classes, explode( ' ', $block_css ) );
 // container wrap
 echo '<div class="'.join( ' ', $classes ).'">';
 
-	echo '<strong>Title:</strong> '.get_the_title( $pid );
-
-	?><hr /><?php
-
-	$wp_content = get_the_content( NULL, FALSE, $pid );
-    if( $wp_content ) {
-        
-        echo '<strong>Content of '.$pid.':</strong> '.$wp_content;
-        
-    }
+	$content = get_the_content( NULL, FALSE, $pid );
+    /**
+     * Filters the post content.
+     *
+     * @since 0.71
+     *
+     * @param string $content Content of the current post.
+     */
+    $content = apply_filters( 'the_content', $content );
+    $content = str_replace( ']]>', ']]&gt;', $content );
+    echo $content;
 
 echo '</div>';
