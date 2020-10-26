@@ -46,9 +46,9 @@ function setup_log_block_acf_init() {
             ],
         ),
 
-        'pull_field' => array(
-            'name'                  => 'pull_field',
-            'title'                 => __('Pull Field'),
+        'pull' => array(
+            'name'                  => 'pull',
+            'title'                 => __('Pull'),
             'render_template'       => plugin_dir_path( __FILE__ ).'partials/blocks/setup-pull-field.php',
             'category'              => 'setup',
             'icon'                  => 'admin-links',
