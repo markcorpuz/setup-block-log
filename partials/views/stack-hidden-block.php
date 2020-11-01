@@ -1,7 +1,7 @@
 <?php
 
 /*
- * TEMPLATE: STACK-BAR
+ * TEMPLATE: STACK-HIDDEN-BLOCK
  */
 
 global $block_css, $block_counter;
@@ -13,7 +13,6 @@ $classes = array(
 	'module',
 	'log',
 	'stack',
-	'bar',
 );
 
 // Include CSS selectors manually entered thru wp-admin
@@ -34,6 +33,17 @@ $classes = array(
 				echo setup_be_log_user();
 				echo setup_be_log_link();
 				?>
+			</div>
+			<div class="right"><?php
+				echo '<a class="item expand" id="group_line_expander__'.$block_counter.'">+</a>';
+			?></div>
+		</div><?php
+		// THIS ENTIRE DIV WILL BE HIDDEN ON PAGE LOAD
+		echo '<div class="group info hide" id="group_info__'.$block_counter.'">';
+			?><div class="group innerblock">
+				<?php
+				echo '<InnerBlocks />';
+				?>	
 			</div>
 		</div>
 	</div>
