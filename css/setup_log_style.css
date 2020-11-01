@@ -64,7 +64,7 @@
  */
 /* SETUP-BE | 1.0.0 | 200408 | setup-be/modules/setup-be-100/base-styles.scss
 ---------------------------------------------------------------------------------------------------- */
-/* SETUP-LOG | 1.0.6 | 200917 | setup-be/block-custom/setup-log-106/log.scss
+/* SETUP-LOG | 1.0.6 | 201027 | setup-be/block-custom/setup-log-106/log.scss
 ---------------------------------------------------------------------------------------------------- */
 .hide {
   display: none;
@@ -73,6 +73,9 @@
 .module.log,
 .module.log.default {
   margin-bottom: 0.25rem;
+}
+
+.module.log.shadow {
   -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15);
@@ -254,7 +257,8 @@
 .module.log .group.bar .item.title,
 .module.log .group.bar .item.summary,
 .module.log .group.bar .item.info,
-.module.log .group.bar .item.user {
+.module.log .group.bar .item.user,
+.module.log .group.bar .item.link {
   font-size: 0.5rem;
   font-weight: 500;
   margin-right: 0.5rem;
@@ -327,7 +331,8 @@
 
 .module.log .group.bar .item.date,
 .module.log .group.bar .item.time,
-.module.log .group.bar .item.user {
+.module.log .group.bar .item.user,
+.module.log .group.bar .item.link {
   padding: 4px;
   border-radius: 4px;
   line-height: 1;
