@@ -31,6 +31,7 @@ $classes = array(
 				echo setup_be_log_label();
 				echo setup_be_log_date();
 				echo setup_be_log_user();
+				echo setup_be_log_link();
 				?>
 			</div>
 			<div class="right"><?php

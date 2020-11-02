@@ -64,14 +64,13 @@
  */
 /* SETUP-BE | 1.0.0 | 200408 | setup-be/modules/setup-be-100/base-styles.scss
 ---------------------------------------------------------------------------------------------------- */
-/* SETUP-LOG | 1.0.6 | 201027 | setup-be/block-custom/setup-log-106/log.scss
+/* SETUP-LOG | 1.0.6 | 201101 | setup-be/block-custom/setup-log-106/log.scss
 ---------------------------------------------------------------------------------------------------- */
 .hide {
   display: none;
 }
 
-.module.log,
-.module.log.default {
+.module.log {
   margin-bottom: 0.25rem;
 }
 
@@ -116,22 +115,24 @@
   display: grid;
   grid-template-columns: 1fr auto;
   grid-gap: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  border-left: 0.5rem solid #eee;
 }
 .module.log .group.bar .left, .module.log .group.bar .right {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
+.module.log.minimal .group.bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
 .module.log.bar .group.bar {
   display: grid;
   grid-template-columns: 1fr;
-}
-.module.log .group.bar, .module.log.default .group.bar {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-  border-left: 0.5rem solid #eee;
 }
 .module.log.sideline .group.bar {
   border-left: 7px;
@@ -190,7 +191,7 @@
 .module.log.sideline.info .group.bar {
   border-left: 7px solid #00ffff;
 }
-.module.log .group.bar, .module.log.default .group.bar, .module.log.highlight .group.bar {
+.module.log.highlight .group.bar {
   background-color: #f3f3f3;
 }
 .module.log.highlight.default .group.bar, .module.log .module.log.highlight.default .group.bar {
@@ -233,23 +234,6 @@
   background-color: transparent;
 }
 
-.module.log .group.summary, .module.log.default .group.summary {
-  padding: 1rem;
-}
-.module.log.padding-zero .group.summary, .module.log.default.padding-zero .group.summary, .module.log.padding-zero-summary .group.summary {
-  padding: 0;
-}
-
-.module.log .group.innerblock, .module.log.default .group.innerblock {
-  padding: 0;
-}
-.module.log.padding-zero .group.innerblock, .module.log.default.padding-zero .group.innerblock, .module.log.default.padding-zero-innerblock .group.innerblock {
-  padding: 0;
-}
-.module.log.default.padding-innerblock .group.innerblock {
-  padding: 1rem;
-}
-
 .module.log .group.bar .item.date,
 .module.log .group.bar .item.time,
 .module.log .group.bar .item.code,
@@ -263,6 +247,7 @@
   font-weight: 500;
   margin-right: 0.5rem;
 }
+
 .module.log .group.bar .item.code {
   background-color: #999;
   color: #eee;
@@ -317,6 +302,13 @@
   line-height: 1;
   width: 12px;
   text-align: center;
+}
+.module.log.minimal .group.bar .item.expand {
+  font-weight: 500;
+  padding: 4px;
+  border-radius: 4px;
+  line-height: 1;
+  width: auto;
 }
 
 .module.log .group.bar a.item.expand {
