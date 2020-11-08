@@ -1,22 +1,34 @@
 <?php
 
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+
 /**
- * SETUP (Block Category)
- * Register Custom Block Category
- * 
+ * Add a block category for "Setup" if it doesn't exist already.
+ *
+ * @ param array $categories Array of block categories.
+ *
+ * @ return array
  */
-add_filter( 'block_categories', 'setup_log_block_categories', 10, 2 );
-function setup_log_block_categories( $categories ) {
-    return array_merge(
+add_filter( 'block_categories', 'setup_block_categories_fn_2' );
+function setup_block_categories_fn_2( $categories ) {
+
+    $category_slugs = wp_list_pluck( $categories, 'slug' );
+
+    return in_array( 'setup', $category_slugs, TRUE ) ? $categories : array_merge(
         array(
             array(
-                'slug' => 'setup',
+                'slug'  => 'setup',
                 'title' => __( 'Setup', 'mydomain' ),
-                //'icon'  => 'wordpress',
+                'icon'  => null,
             ),
         ),
         $categories
     );
+
 }
 
 
@@ -46,7 +58,7 @@ function setup_log_block_acf_init() {
             ],
         ),
 
-        'pull' => array(
+        /*'pull' => array(
             'name'                  => 'pull',
             'title'                 => __('Pull'),
             'render_template'       => plugin_dir_path( __FILE__ ).'partials/blocks/setup-pull-field.php',
@@ -54,7 +66,7 @@ function setup_log_block_acf_init() {
             'icon'                  => 'admin-links',
             'mode'                  => 'edit',
             'keywords'              => array( 'pull', 'get' ),
-        ),
+        ),*/
 
     );
 
@@ -85,7 +97,7 @@ function setup_log_block_acf_init() {
  *
  */
 add_filter( 'acf/load_field/name=log_layout', 'acf_setup_load_template_choices' );
-add_filter( 'acf/load_field/name=pull_layout', 'acf_setup_load_template_choices' );
+//add_filter( 'acf/load_field/name=pull_layout', 'acf_setup_load_template_choices' );
 function acf_setup_load_template_choices( $field ) {
     
     // get all files found in VIEWS folder
@@ -122,43 +134,46 @@ function acf_setup_load_template_choices( $field ) {
 /**
  * Get VIEW template | this function is called by SETUP-LOG-FLEX.PHP found in PARTIALS/BLOCKS folder
  */
-function setup_acf_pull_view_template( $layout, $args = FALSE ) {
-
-    $layout_file = plugin_dir_path( __FILE__ ).'partials/views/'.$layout;
+if( !function_exists( 'setup_acf_pull_view_template' ) ) {
     
-    if( $args ) {
+    function setup_acf_pull_view_template( $layout, $args = FALSE ) {
 
-        if( array_key_exists( 'id', $args ) ) {
+        $layout_file = plugin_dir_path( __FILE__ ).'partials/views/'.$layout;
+        
+        if( $args ) {
 
-            global $pid;
+            if( array_key_exists( 'id', $args ) ) {
 
-            $pid = $args[ 'id' ];
+                global $pid;
 
+                $pid = $args[ 'id' ];
+
+            }
+            
         }
         
+        if( is_file( $layout_file ) ) {
+
+            ob_start();
+
+            include $layout_file;
+
+            $new_output = ob_get_clean();
+                
+            if( !empty( $new_output ) )
+                $output = $new_output;
+
+        } else {
+
+            $output = FALSE;
+
+        }
+
+        return $output;
+
     }
-    
-    if( is_file( $layout_file ) ) {
-
-        ob_start();
-
-        include $layout_file;
-
-        $new_output = ob_get_clean();
-            
-        if( !empty( $new_output ) )
-            $output = $new_output;
-
-    } else {
-
-        $output = FALSE;
-
-    }
-
-    return $output;
 
 }
-
 /*add_action( 'genesis_before_content', 'textsss' );
 function textsss() {
     $view_dir = plugin_dir_path( __FILE__ ).'partials/views/';
@@ -166,9 +181,8 @@ function textsss() {
 }*/
 
 
-// #####################################################################################################################
-// get all files in the INC folder to be used for including the said files
-// but get rid of the dots that scandir() picks up in Linux environments
+
+// pull all files found in $directory but get rid of the dots that scandir() picks up in Linux environments
 if( !function_exists( 'setup_pull_view_files' ) ) {
 
     function setup_pull_view_files( $directory ) {
@@ -238,7 +252,7 @@ if( !function_exists( 'setup_pull_view_files' ) ) {
 }
 
 // PULL TEMPLATE FILES
-if( !function_exists( 'setup_starter_list_all_templates' ) ) {
+/*if( !function_exists( 'setup_starter_list_all_templates' ) ) {
 
     function setup_starter_list_all_templates() {
         
@@ -278,4 +292,4 @@ if( !function_exists( 'setup_starter_list_all_templates' ) ) {
 
     }
 
-}
+}*/

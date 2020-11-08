@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: SETUP LOG
+ * Plugin Name: Setup Log
  * Description: Display custom Guttenburg block via Advanced Custom Fields.
  * Version: 1.0.6
  * Author: Jake Almeda & Mark Corpuz
@@ -38,11 +38,6 @@ function setup_log_function() {
 
 }
 
-/**
- * NOTE: Temporarily disabling plugin based styling due to the repetitive nature of reusing styles.
- * Remove comments below to allow if we want the styles to be independent but at the moment, we're using the default child theme styles
- * 
- */
 
 if ( !is_admin() ) {
 
