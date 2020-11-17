@@ -21,9 +21,72 @@ $classes = array(
     $classes = array_merge( $classes, explode( ' ', $block_css ) );
 //}
 
-?>
 
-<?php echo '<div class="'.join( ' ', $classes ).'">'; ?>
+// VALIDATE INFO FIRST
+if( get_field( 'log_title' ) || get_field( 'log_summary' ) || get_field( 'log_info' ) ) {
+
+	$group_info = '<div class="group info hide" id="group_info__'.$block_counter.'">
+						<div class="group summary">'.
+							setup_be_log_title().
+							setup_be_log_summary().
+							setup_be_log_info().
+						'</div>
+						<div class="group innerblock"><InnerBlocks /></div>
+					</div>';
+
+	$expander = '<div class="left"><a class="item expand" id="group_line_expander__'.$block_counter.'">CLICK TO EXPAND</a></div>';
+
+} else {
+
+	// Check for inner blocks
+	$content = get_the_content();
+
+	$inner_blocks = isset( $content ) ? $content : false;
+
+	if( !empty( trim( strip_tags( $inner_blocks ) ) ) ) {
+
+		$group_info = '<div class="group info hide" id="group_info__'.$block_counter.'">
+								<div class="group innerblock"><InnerBlocks /></div>
+							</div>';
+
+		$expander = '<div class="left"><a class="item expand" id="group_line_expander__'.$block_counter.'">CLICK TO EXPAND</a></div>';
+
+	} else {
+
+		// declare empty variables
+		$group_info = '';
+		$expander = '';
+
+	}
+
+}
+/*
+function copter_remove_crappy_markup( $string ) {
+    $patterns = array(
+        '#^\s*</p>#',
+        '#<p>\s*$#'
+    );
+
+    return preg_replace($patterns, '', $string);
+}
+*/
+
+
+// output
+echo '<div class="'.join( ' ', $classes ).'" id="ekaj"><div class="module-wrap">
+			<div class="group bar">
+				'.$expander.'
+				<div class="right">
+					'.setup_be_log_code().setup_be_log_label().setup_be_log_date().setup_be_log_user().setup_be_log_link_external().'
+				</div>
+			</div>
+			'.$group_info.'
+	</div></div>';
+
+
+/*
+// THIS IS THE ORIGINAL OUTPUT CODE
+echo '<div class="'.join( ' ', $classes ).'">'; ?>
 	<div class="module-wrap">
 		<div class="group bar">
 			<div class="left">
@@ -57,7 +120,7 @@ $classes = array(
 		</div>
 	</div>
 </div>
-
 <?php
+*/
 
 // EOF

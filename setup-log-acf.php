@@ -58,16 +58,6 @@ function setup_log_block_acf_init() {
             ],
         ),
 
-        /*'pull' => array(
-            'name'                  => 'pull',
-            'title'                 => __('Pull'),
-            'render_template'       => plugin_dir_path( __FILE__ ).'partials/blocks/setup-pull-field.php',
-            'category'              => 'setup',
-            'icon'                  => 'admin-links',
-            'mode'                  => 'edit',
-            'keywords'              => array( 'pull', 'get' ),
-        ),*/
-
     );
 
     // Bail out if function doesn’t exist or no blocks available to register.
@@ -102,18 +92,8 @@ function acf_setup_load_template_choices( $field ) {
     
     // get all files found in VIEWS folder
     $view_dir = plugin_dir_path( __FILE__ ).'partials/views/';
-/*    $files = scandir($path);
-    $choices = array_diff(scandir($path), array('.', '..'));
-    var_dump($choices);
-  */
 
     $data_from_database = setup_pull_view_files( $view_dir );
-
-    //Change this to whatever data you are using.
-    /*$data_from_database = array(
-        'key1' => 'value1',
-        'key2' => 'value2'
-    );*/
 
     $field['choices'] = array();
 
@@ -174,12 +154,6 @@ if( !function_exists( 'setup_acf_pull_view_template' ) ) {
     }
 
 }
-/*add_action( 'genesis_before_content', 'textsss' );
-function textsss() {
-    $view_dir = plugin_dir_path( __FILE__ ).'partials/views/';
-    var_dump( setup_pull_view_files( $view_dir ) );
-}*/
-
 
 
 // pull all files found in $directory but get rid of the dots that scandir() picks up in Linux environments
