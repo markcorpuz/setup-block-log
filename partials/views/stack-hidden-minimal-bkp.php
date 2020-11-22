@@ -23,7 +23,6 @@ $classes = array(
 
 // get field contents
 $ib_checker = get_field( 'log_display_innerblock' );
-$ib_checker_ex = get_field( 'log_expanded_innerblock' );
 
 // initialize variable
 $ib_var = '<div class="group innerblock"><InnerBlocks /></div>';
@@ -39,63 +38,18 @@ if( get_field( 'log_title' ) || get_field( 'log_summary' ) || get_field( 'log_in
 	if( is_admin() && is_user_logged_in() ) {
 
 		if( in_array( 'show_admin', $ib_checker ) ) {
-
 			$val_inner_block = $ib_var;
-
 		} else {
-
 			$val_inner_block = '';
-
 		}
 
 	} else {
 		
-		// LIVE user is NOT logged in
+		// user is NOT logged in
 		if( in_array( 'show_live', $ib_checker ) ) {
-
-			/*if( $ib_checker_ex == 'show' ) {
-
-				// show InnerBlock outside the hidden div
-				$innerblock_expanded = $ib_var;
-				$val_inner_block = '';
-
-			} else {
-
-				// show InnerBlock inside the hidden div
-				$innerblock_expanded = '';
-				$val_inner_block = $ib_var;
-
-			}*/
-			if( $ib_checker_ex == 'show' ) {
-
-				// SHOW INNERBLOCK OUTSIDE THE HIDDEN DIV
-
-				$innerblock_expanded = $ib_var;
-				
-				$val_inner_block = '';
-
-			} elseif( $ib_checker_ex == 'collapse' ) {
-
-				// COLLAPSABLE
-
-				$innerblock_expanded = '';
-				
-				$val_inner_block = '<div class="left"><a class="item expand" id="group_line_ib_expander__'.$block_counter.'">CLICK TO EXPAND</a></div>
-									<div class="group info hide" id="group_info_ib__'.$block_counter.'">'.$ib_var.'</div>';
-
-			} else {
-
-				// just show InnerBlock inside the hidden div
-				$innerblock_expanded = '';
-				
-				$val_inner_block = $ib_var;
-
-			}	
-
+			$val_inner_block = $ib_var;
 		} else {
-
 			$val_inner_block = '';
-
 		}
 
 	}
@@ -122,59 +76,17 @@ if( get_field( 'log_title' ) || get_field( 'log_summary' ) || get_field( 'log_in
 
 	if( !empty( trim( strip_tags( $inner_blocks ) ) ) ) {
 
+		// user is NOT logged in
 		if( in_array( 'show_live', $ib_checker ) ) {
-
-			if( $ib_checker_ex == 'show' ) {
-
-				// SHOW INNERBLOCK OUTSIDE THE HIDDEN DIV
-
-				$innerblock_expanded = $ib_var;
-				
-				$group_info = '';
-
-				$expander = '';
-
-			} elseif( $ib_checker_ex == 'collapse' ) {
-
-				// COLLAPSABLE
-
-				$innerblock_expanded = '';
-				// show collapsible
-				//$val_inner_block = 'InnerBlock has contents | Make this collapsible';
-				$group_info = '<div class="group info hide" id="group_info__'.$block_counter.'">
-									<div class="left"><a class="item expand" id="group_line_ib_expander__'.$block_counter.'">CLICK TO EXPAND</a></div>
-									<div class="group info hide" id="group_info_ib__'.$block_counter.'">'.$ib_var.'</div>
-							</div>';
-
-				$expander = $spandex;
-
-			} else {
-
-				// just show InnerBlock inside the hidden div
-
-				$innerblock_expanded = '';
-				//$val_inner_block = 'JAKE: '.$ib_var;
-				$group_info = '<div class="group info hide" id="group_info__'.$block_counter.'">'.$ib_var.'</div>';
-
-				$expander = $spandex;
-
-			}
-
+			$val_inner_block = $ib_var;
 		} else {
-
-			// SHOW NOTHING
-
-			$innerblock_expanded = '';
-			
-			$group_info = '';
-
-			$expander = '';
-
+			// show collapsible
+			$val_inner_block = 'InnerBlock has contents | Make this collapsible';
 		}
 
-//		$group_info = '<div class="group info hide" id="group_info__'.$block_counter.'">'.$val_inner_block.'</div>';
+		$group_info = '<div class="group info hide" id="group_info__'.$block_counter.'">'.$val_inner_block.'</div>';
 
-//		$expander = $spandex;
+		$expander = $spandex;
 
 	} else {
 
@@ -219,7 +131,6 @@ echo '<div class="'.join( ' ', $classes ).'" id="ekaj"><div class="module-wrap">
 				</div>
 			</div>
 			'.$group_info.'
-			'.$innerblock_expanded.'
 	</div></div>';
 
 
