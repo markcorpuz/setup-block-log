@@ -123,7 +123,7 @@ function copter_remove_crappy_markup( $string ) {
 
 
 // output
-echo '<div class="'.join( ' ', $classes ).'" id="ekaj"><div class="module-wrap">
+echo '<div class="'.join( ' ', $classes ).'"><div class="module-wrap">
 			<div class="group bar">
 				'.$expander.'
 				<div class="right">
