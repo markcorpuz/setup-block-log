@@ -1,35 +1,94 @@
 <?php
 
-$z = get_field( 'log_filter' );
+$z = get_field( 'log_show' );
 	
-/*
-	log_filter_spec : Spec
-		log_code
-		log_label
-		log_user
-
-	log_filter_date : Date
-		log_date
-		log_time
-
-	log_filter_info : Info
-		log_title
-		log_summary
-		log_info
-
-	log_filter_link : Link
-		log_link (external)
-		log_link_internal
-
-	log_filter_innerblock : Block
-		log_display_innerblock
-		log_expanded_innerblock
-*/
 
 $out = ''; // initialize variable
 
+
+ // DATE
+if( in_array( 'log_date', $z ) ) {
+	$out .= setup_be_log_date();
+}
+
+
+// TIME
+if( in_array( 'log_time', $z ) ) {
+	$out .= setup_be_log_time();
+}
+
+
+// CODE
+if( in_array( 'log_code', $z ) ) {
+	$out .= setup_be_log_code();
+}
+
+
+// LABEL
+if( in_array( 'log_label', $z ) ) {
+	$out .= setup_be_log_label();
+}
+
+
+// TITLE
+if( in_array( 'log_title', $z ) ) {
+	$out .= setup_be_log_title();
+}
+
+
+// SUMMARY
+if( in_array( 'log_summary', $z ) ) {
+	$out .= setup_be_log_summary();
+}
+
+
+// INFO
+if( in_array( 'log_info', $z ) ) {
+	$out .= setup_be_log_info();
+}
+
+
+// CTA Term
+if( in_array( 'log_cta_term', $z ) ) {
+	//$out .= setup_be_log_info();
+}
+
+
+// USER
+if( in_array( 'log_user', $z ) ) {
+	$out .= setup_be_log_user();
+}
+
+
+// LINK EXTERNAL
+if( in_array( 'log_link', $z ) ) {
+	$out .= '<div>'.setup_be_log_link_external_dynamic().'</div>';
+}
+
+
+// LINK INTERNAL
+if( in_array( 'log_link_internal', $z ) ) {
+	$out .= '<div>'.setup_be_log_link().'</div>';
+}
+
+
+// INNERBLOCK
+if( in_array( 'log_innerblock', $z ) ) {
+
+	$libo = get_field( 'log_innerblock_options' );
+
+	/*
+		show : Show
+		nested : Nested
+		collapse : Nested Collapse
+	*/
+
+	$out .= '<div class="group innerblock"><InnerBlocks /></div>';
+}
+
+
 // SPEC
-if( in_array( 'log_filter_spec', $z ) ) {
+/*if( in_array( 'log_filter_spec', $z ) ) {
 
 	if( get_field( 'log_code_display' ) == 'show' ) {
 		$out .= setup_be_log_code();
@@ -58,7 +117,7 @@ if( in_array( 'log_filter_info', $z ) ) {
 // LINK
 if( in_array( 'log_filter_link', $z ) ) {
 	$out .= '<div>'.setup_be_log_link().'</div><div>'.setup_be_log_link_external_dynamic().'</div>';
-}
+}*/
 
 // INNERBLOCK
 /*if( in_array( 'log_filter_innerblock', $z ) ) {
