@@ -2,75 +2,65 @@
 
 $z = get_field( 'log_show' );
 	
-
+//echo get_field( 'log_state' );
+// GET VARIABLES
+// ###########################################################
 $out = ''; // initialize variable
-
 
  // DATE
 if( in_array( 'log_date', $z ) ) {
 	$out .= setup_be_log_date();
 }
 
-
 // TIME
 if( in_array( 'log_time', $z ) ) {
 	$out .= setup_be_log_time();
 }
-
 
 // CODE
 if( in_array( 'log_code', $z ) ) {
 	$out .= setup_be_log_code();
 }
 
-
 // LABEL
 if( in_array( 'log_label', $z ) ) {
 	$out .= setup_be_log_label();
 }
-
 
 // TITLE
 if( in_array( 'log_title', $z ) ) {
 	$out .= setup_be_log_title();
 }
 
-
 // SUMMARY
 if( in_array( 'log_summary', $z ) ) {
 	$out .= setup_be_log_summary();
 }
-
 
 // INFO
 if( in_array( 'log_info', $z ) ) {
 	$out .= setup_be_log_info();
 }
 
-
 // CTA Term
 if( in_array( 'log_cta_term', $z ) ) {
 	//$out .= setup_be_log_info();
 }
-
 
 // USER
 if( in_array( 'log_user', $z ) ) {
 	$out .= setup_be_log_user();
 }
 
-
 // LINK EXTERNAL
 if( in_array( 'log_link', $z ) ) {
 	$out .= '<div>'.setup_be_log_link_external_dynamic().'</div>';
 }
 
-
 // LINK INTERNAL
 if( in_array( 'log_link_internal', $z ) ) {
 	$out .= '<div>'.setup_be_log_link().'</div>';
 }
-
 
 // INNERBLOCK
 if( in_array( 'log_innerblock', $z ) ) {
@@ -85,6 +75,13 @@ if( in_array( 'log_innerblock', $z ) ) {
 
 	$out .= '<div class="group innerblock"><InnerBlocks /></div>';
 }
+
+/*
+
+IF $OUT IS EMPTY, SHOW AN INDICATOR THAT THE BLOCK IS IN THE WP-CONTENT
+ALSO ADD THE TEMPLATE NAME BEING USED
+
+*/
 
 
 // SPEC
@@ -183,5 +180,6 @@ if( in_array( 'log_filter_link', $z ) ) {
 	}
 
 }*/
+
 
 echo '<div class="'.join( ' ', $classes ).'"><div class="module-wrap">'.$out.'</div></div>';

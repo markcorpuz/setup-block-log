@@ -22,7 +22,7 @@
 	});
 
 	// nested collapsable div
-	$( "[id^=group_line_ib_expander__]" ).each( function () {
+	/*$( "[id^=group_line_ib_expander__]" ).each( function () {
 
 		var logID 				= this.id,
 			SlogID 				= logID.split( "__" );
@@ -40,6 +40,6 @@
 
 		});
 
-	});
+	});*/
 
 })( jQuery );
