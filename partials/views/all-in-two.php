@@ -104,15 +104,7 @@ if( $log_state == 'default' ) {
 // # HANDLE THE DISPLAY - MINIMIZED
 // ###########################################################
 if( $log_state == 'minimized' ) {
-/*			<div class="group bar">
-				'.$expander.'
-				<div class="right">
-					'.setup_be_log_code().setup_be_log_label().setup_be_log_date().setup_be_log_user().setup_be_log_link_external().'
-				</div>
-			</div>
-			'.$group_info.'
-			'.$innerblock_expanded.'
-*/
+
 	$out = '<div class="group bar">
 				<div class="left"><a class="item expand" id="group_line_expander__'.$block_counter.'">CLICK TO EXPAND</a></div>
 				<div class="right">
@@ -122,6 +114,7 @@ if( $log_state == 'minimized' ) {
 			<div class="group info hide" id="group_info__'.$block_counter.'">
 				'.$log_title.$log_summary.$log_info.$log_cta_term.$log_innerblock.'
 			</div>';
+			
 }
 
 
