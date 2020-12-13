@@ -1,0 +1,496 @@
+[
+    {
+        "key": "group_5e24d5ab9a653",
+        "title": "Log",
+        "fields": [
+            {
+                "key": "field_5f7d1a7f04c56",
+                "label": "Log Layout",
+                "name": "log_layout",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "all-in-three.php": "all-in-three",
+                    "all-in-two.php": "all-in-two",
+                    "all-in.php": "all-in",
+                    "guidebox-list-bar.php": "guidebox-list-bar",
+                    "log-links.php": "log-links",
+                    "pull-all.php": "pull-all",
+                    "stack-bar.php": "stack-bar",
+                    "stack-hidden-block.php": "stack-hidden-block",
+                    "stack-hidden-minimal-bkp.php": "stack-hidden-minimal-bkp",
+                    "stack-hidden-minimal.php": "stack-hidden-minimal",
+                    "stack-hidden.php": "stack-hidden",
+                    "stack-visible-block.php": "stack-visible-block",
+                    "stack-visible-minimal.php": "stack-visible-minimal",
+                    "stack-visible.php": "stack-visible"
+                },
+                "default_value": false,
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_5fbd25949fe30",
+                "label": "Log Filter",
+                "name": "log_filter",
+                "type": "checkbox",
+                "instructions": "For now, make sure all options are selected. Will work on this again tomorrow.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "log_filter_spec": "Spec",
+                    "log_filter_date": "Date",
+                    "log_filter_info": "Info",
+                    "log_filter_link": "Link",
+                    "log_filter_innerblock": "InnerBlock"
+                },
+                "allow_custom": 0,
+                "default_value": [],
+                "layout": "horizontal",
+                "toggle": 0,
+                "return_format": "value",
+                "save_custom": 0
+            },
+            {
+                "key": "field_5fc265d12d2f2",
+                "label": "Log Usage",
+                "name": "log_usage",
+                "type": "checkbox",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "log_usage_ctalink": "CTA Link",
+                    "log_usage_heading": "Heading"
+                },
+                "allow_custom": 0,
+                "default_value": [],
+                "layout": "horizontal",
+                "toggle": 0,
+                "return_format": "value",
+                "save_custom": 0
+            },
+            {
+                "key": "field_5fc2621dfa6d0",
+                "label": "Log Show",
+                "name": "log_show",
+                "type": "checkbox",
+                "instructions": "Each option corresponds to a custom field below. If selected, it will be displayed in the public (live) area. Else, it will be hidden.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "75",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "log_date": "Date",
+                    "log_time": "Time",
+                    "log_code": "Code",
+                    "log_label": "Label",
+                    "log_title": "Title",
+                    "log_summary": "Summary",
+                    "log_info": "Info",
+                    "log_cta_term": "CTA Term",
+                    "log_user": "User",
+                    "log_link": "Link (External)",
+                    "log_link_internal": "Link (Internal)",
+                    "log_innerblock": "InnerBlock"
+                },
+                "allow_custom": 0,
+                "default_value": [],
+                "layout": "horizontal",
+                "toggle": 0,
+                "return_format": "value",
+                "save_custom": 0
+            },
+            {
+                "key": "field_5fc8fa34fb36d",
+                "label": "Log State",
+                "name": "log_state",
+                "type": "radio",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "25",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "default": "Default",
+                    "minimized": "Minimized",
+                    "expanded": "Expanded"
+                },
+                "allow_null": 0,
+                "other_choice": 0,
+                "default_value": "default : Default",
+                "layout": "vertical",
+                "return_format": "value",
+                "save_other_choice": 0
+            },
+            {
+                "key": "field_5fcb79472bffc",
+                "label": "Log Group One",
+                "name": "log_group_one",
+                "type": "checkbox",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5fc8fa34fb36d",
+                            "operator": "==",
+                            "value": "minimized"
+                        }
+                    ],
+                    [
+                        {
+                            "field": "field_5fc8fa34fb36d",
+                            "operator": "==",
+                            "value": "expanded"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "log_date": "Date",
+                    "log_time": "Time",
+                    "log_code": "Code",
+                    "log_label": "Label",
+                    "log_title": "Title",
+                    "log_summary": "Summary",
+                    "log_info": "Info",
+                    "log_cta_term": "CTA Term",
+                    "log_user": "User",
+                    "log_link": "Link (External)",
+                    "log_link_internal": "Link (Internal)",
+                    "log_innerblock": "InnerBlock"
+                },
+                "allow_custom": 0,
+                "default_value": [],
+                "layout": "vertical",
+                "toggle": 0,
+                "return_format": "value",
+                "save_custom": 0
+            },
+            {
+                "key": "field_5fcb7bfc2bffd",
+                "label": "Log Group Two",
+                "name": "log_group_two",
+                "type": "checkbox",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5fc8fa34fb36d",
+                            "operator": "==",
+                            "value": "minimized"
+                        }
+                    ],
+                    [
+                        {
+                            "field": "field_5fc8fa34fb36d",
+                            "operator": "==",
+                            "value": "expanded"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "log_date": "Date",
+                    "log_time": "Time",
+                    "log_code": "Code",
+                    "log_label": "Label",
+                    "log_title": "Title",
+                    "log_summary": "Summary",
+                    "log_info": "Info",
+                    "log_cta_term": "CTA Term",
+                    "log_user": "User",
+                    "log_link": "Link (External)",
+                    "log_link_internal": "Link (Internal)",
+                    "log_innerblock": "InnerBlock"
+                },
+                "allow_custom": 0,
+                "default_value": [],
+                "layout": "vertical",
+                "toggle": 0,
+                "return_format": "value",
+                "save_custom": 0
+            },
+            {
+                "key": "field_5e24d5ab9ce72",
+                "label": "Log Date",
+                "name": "log_date",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": "log_filter_date"
+                },
+                "display_format": "m\/d\/Y",
+                "return_format": "m\/d\/Y",
+                "first_day": 1
+            },
+            {
+                "key": "field_5e24d5ab9ce78",
+                "label": "Log Time",
+                "name": "log_time",
+                "type": "time_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": "log_filter_date"
+                },
+                "display_format": "g:i a",
+                "return_format": "g:i a"
+            },
+            {
+                "key": "field_5f62b122638c5",
+                "label": "Log Code",
+                "name": "log_code",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": "log_filter_spec"
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5ee118b9d2eaf",
+                "label": "Log Label",
+                "name": "log_label",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": "log_filter_spec"
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5f629f15638c3",
+                "label": "Log Title",
+                "name": "log_title",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": "log_filter_spec"
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5ee118ccd2eb0",
+                "label": "Log Summary",
+                "name": "log_summary",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": "log_filter_spec"
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": ""
+            },
+            {
+                "key": "field_5ee118d6d2eb1",
+                "label": "Log Info",
+                "name": "log_info",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": "log_filter_spec"
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_5fc267c2b47f8",
+                "label": "Log CTA Term",
+                "name": "log_cta_term",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": "log_filter_info"
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5f62b10b638c4",
+                "label": "Log User",
+                "name": "log_user",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": "log_filter_info"
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5f9eff2bebb3a",
+                "label": "Log Link",
+                "name": "log_link",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": "log_filter_link"
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5f9f866f2b151",
+                "label": "Log Link Internal",
+                "name": "log_link_internal",
+                "type": "relationship",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": "log_filter_link"
+                },
+                "post_type": "",
+                "taxonomy": "",
+                "filters": [
+                    "search",
+                    "post_type",
+                    "taxonomy"
+                ],
+                "elements": "",
+                "min": "",
+                "max": 1,
+                "return_format": "id"
+            },
+            {
+                "key": "field_5fbd3132cea02",
+                "label": "Log Notes",
+                "name": "log_notes",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/log"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    }
+]

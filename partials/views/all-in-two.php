@@ -136,7 +136,7 @@ if( $log_state == 'expanded' ) {
 }
 
 
-if( empty( strip_tags( $out ) ) ) {
+if( empty( strip_tags( $out ) ) && empty( $log_innerblock ) ) {
 	// show default notification that the block exists
 	//SETUP-LOG | Template: All-In | Show: Title Summary InnerBlock
 	$out = 'SETUP-LOG | Template: '.get_field( 'log_layout' ).' | Show: (Jake show all fields that are selected)';

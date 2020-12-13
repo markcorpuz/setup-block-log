@@ -172,7 +172,7 @@ if( !function_exists( 'setup_pull_view_files' ) ) {
             $file = basename( $directory.$value, ".php" );
 
             // get details of the file
-            //$filepath = pathinfo( $file );
+            $file_extension = pathinfo( $directory.$value, PATHINFO_EXTENSION );
             //echo '<h1>'.basename( $file, ".php" ).'</h1>';
             // ------------------------------------------------------
             /*$source = file_get_contents( $file );
@@ -210,9 +210,9 @@ if( !function_exists( 'setup_pull_view_files' ) ) {
 
             }*/
             // ------------------------------------------------------
-
+            
             // filter files to include
-            if( $file ) {
+            if( $file && $file_extension == 'php' ) {
                 $out[ $value ] = $file;
             }
 
