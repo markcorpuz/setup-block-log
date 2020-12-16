@@ -14,9 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-include_once( 'setup_log_variables.php' );
-
-
 add_action( 'genesis_setup', 'setup_log_fn', 15 );
 function setup_log_fn() {
 	include_once( plugin_dir_path( __FILE__ ).'setup-log-acf.php' );

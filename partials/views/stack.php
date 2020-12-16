@@ -103,15 +103,31 @@ if( in_array( 'log_innerblock', $z ) ) {
  */
 if( $log_state == 'default' ) {
 
-	$out = '<div class="info">
-				'.$log_title.$log_summary.'
-			</div>
-			<div class="spec">
-				'.$log_code.$log_user.$log_label.$log_date.$log_cta.$log_link_external_link.$log_link_internal_link.'
-			</div>
-			<div class="item innerblock>
-				'.$log_innerblock.'
-			</div>';
+	// INFO
+	$out_info = $log_title.$log_summary;
+	if( !empty( strip_tags( $out_info ) ) ) {
+		$out_info = '<div class="info">'.$out_info.'</div>';
+	} else {
+		$out_info = '';
+	}
+
+	// SPEC
+	$out_spec = $log_code.$log_user.$log_label.$log_date.$log_cta.$log_link_external_link.$log_link_internal_link;
+	if( !empty( strip_tags( $out_spec ) ) ) {
+		$out_spec = '<div class="spec">'.$out_spec.'</div>';
+	} else {
+		$out_spec = '';
+	}
+
+	// INNERBLOCK
+	if( !empty( $log_innerblock ) ) {
+		$out_innblo = '<div class="item innerblock>'.$log_innerblock.'</div>';
+	} else {
+		$out_innblo = '';
+	}
+
+	// SET OUTPUT
+	$out = $out_info.$out_spec.$out_innblo;
 
 }
 
@@ -123,17 +139,35 @@ if( $log_state == 'default' ) {
  */
 if( $log_state == 'minimized' ) {
 
-	$out = '<div class="info">
-				'.$log_title.$log_summary.'
-			</div>
-			<div class="spec">
-				'.$log_code.$log_user.$log_label.$log_date.$log_cta.$log_link_external_link.$log_link_internal_link.'
-			</div>
-			<div class="item expand"><a class="alink" id="group_line_expander__'.$block_counter.'">CLICK TO EXPAND</a></div>
-			<div class="item innerblock hide" id="group_info__'.$block_counter.'">
-				'.$log_innerblock.'
-			</div>';
-			
+	// INFO
+	$out_info = $log_title.$log_summary;
+	if( !empty( strip_tags( $out_info ) ) ) {
+		$out_info = '<div class="info">'.$out_info.'</div>';
+	} else {
+		$out_info = '';
+	}
+
+	// SPEC
+	$out_spec = $log_code.$log_user.$log_label.$log_date.$log_cta.$log_link_external_link.$log_link_internal_link;
+	if( !empty( strip_tags( $out_spec ) ) ) {
+		$out_spec = '<div class="spec">'.$out_spec.'</div>';
+	} else {
+		$out_spec = '';
+	}
+
+	// INNERBLOCK
+	if( !empty( $log_innerblock ) ) {
+		$out_innblo = '<div class="item expand"><a class="alink" id="group_line_expander__'.$block_counter.'">CLICK TO EXPAND</a></div>
+						<div class="item innerblock hide" id="group_info__'.$block_counter.'">
+							'.$log_innerblock.'
+						</div>';
+	} else {
+		$out_innblo = '';
+	}
+
+	// SET OUTPUT
+	$out = $out_info.$out_spec.$out_innblo;
+
 }
 
 
@@ -144,16 +178,34 @@ if( $log_state == 'minimized' ) {
  */
 if( $log_state == 'expanded' ) {
 
-	$out = '<div class="info">
-				'.$log_title.$log_summary.'
-			</div>
-			<div class="spec">
-				'.$log_code.$log_user.$log_label.$log_date.$log_cta.$log_link_external_link.$log_link_internal_link.'
-			</div>
-			<div class="item expand"><a class="item expand" id="group_line_expander__'.$block_counter.'">CLICK TO HIDE</a></div>
-			<div class="group innerblock hide" id="group_info__'.$block_counter.'">
-				'.$log_innerblock.'
-			</div>';
+	// INFO
+	$out_info = $log_title.$log_summary;
+	if( !empty( strip_tags( $out_info ) ) ) {
+		$out_info = '<div class="info">'.$out_info.'</div>';
+	} else {
+		$out_info = '';
+	}
+
+	// SPEC
+	$out_spec = $log_code.$log_user.$log_label.$log_date.$log_cta.$log_link_external_link.$log_link_internal_link;
+	if( !empty( strip_tags( $out_spec ) ) ) {
+		$out_spec = '<div class="spec">'.$out_spec.'</div>';
+	} else {
+		$out_spec = '';
+	}
+
+	// INNERBLOCK
+	if( !empty( $log_innerblock ) ) {
+		$out_innblo = '<div class="item expand"><a class="item expand" id="group_line_expander__'.$block_counter.'">CLICK TO HIDE</a></div>
+						<div class="group innerblock hide" id="group_info__'.$block_counter.'">
+							'.$log_innerblock.'
+						</div>';
+	} else {
+		$out_innblo = '';
+	}
+
+	// SET OUTPUT
+	$out = $out_info.$out_spec.$out_innblo;
 
 }
 
