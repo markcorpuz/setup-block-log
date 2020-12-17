@@ -64,8 +64,8 @@ if( in_array( 'log_info', $z ) ) {
 }
 
 // CTA Term
-if( in_array( 'log_cta_term', $z ) ) {
-	$log_cta_term = setup_be_log_info();	// HEY MARK, NOT SURE IF YOU HAVE A FUNCTION FOR THIS FIELD ALREADY; PLEASE CHANGE NA LANG PRE.
+if( in_array( 'log_cta', $z ) ) {
+	$log_cta = setup_be_log_cta();
 }
 
 // USER
@@ -95,7 +95,7 @@ if( in_array( 'log_innerblock', $z ) ) {
 if( $log_state == 'default' ) {
 
 	$out = $log_date.$log_time.$log_code.$log_label.$log_title.$log_summary.$log_info.
-			$log_cta_term.$log_user.$log_link_external.$log_link_internal.$log_innerblock;
+			$log_cta.$log_user.$log_link_external.$log_link_internal.$log_innerblock;
 
 }
 
@@ -112,7 +112,7 @@ if( $log_state == 'minimized' ) {
 				</div>
 			</div>			
 			<div class="group info hide" id="group_info__'.$block_counter.'">
-				'.$log_title.$log_summary.$log_info.$log_cta_term.$log_innerblock.'
+				'.$log_title.$log_summary.$log_info.$log_cta.$log_innerblock.'
 			</div>';
 			
 }
@@ -130,7 +130,7 @@ if( $log_state == 'expanded' ) {
 				</div>
 			</div>			
 			<div class="group info" id="group_info__'.$block_counter.'">
-				'.$log_title.$log_summary.$log_info.$log_cta_term.$log_innerblock.'
+				'.$log_title.$log_summary.$log_info.$log_cta.$log_innerblock.'
 			</div>';
 
 }

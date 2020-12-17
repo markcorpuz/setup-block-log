@@ -92,7 +92,7 @@ if( in_array( 'log_link_internal', $z ) ) {
 
 // INNERBLOCK
 if( in_array( 'log_innerblock', $z ) ) {
-	$log_innerblock .= '<InnerBlocks />';
+	$log_innerblock = '<InnerBlocks />';
 }
 
 
@@ -106,22 +106,24 @@ if( $log_state == 'default' ) {
 	// INFO
 	$out_info = $log_title.$log_summary;
 	if( !empty( strip_tags( $out_info ) ) ) {
-		$out_info = '<div class="info">'.$out_info.'</div>';
+		$out_info = '<div class="group info">'.$out_info.'</div>';
 	} else {
 		$out_info = '';
 	}
 
 	// SPEC
-	$out_spec = $log_code.$log_user.$log_label.$log_date.$log_cta.$log_link_external_link.$log_link_internal_link;
+	$out_spec = $log_code.$log_user.$log_label.$log_date.$log_link_external_link.$log_link_internal_link;
 	if( !empty( strip_tags( $out_spec ) ) ) {
-		$out_spec = '<div class="spec">'.$out_spec.'</div>';
+		$out_spec = '<div class="group spec">'.$out_spec.'</div>';
 	} else {
 		$out_spec = '';
 	}
 
 	// INNERBLOCK
 	if( !empty( $log_innerblock ) ) {
-		$out_innblo = '<div class="item innerblock>'.$log_innerblock.'</div>';
+		$out_innblo = '<div class="group innerblock">
+							<InnerBlocks />
+						</div>';
 	} else {
 		$out_innblo = '';
 	}
@@ -142,15 +144,15 @@ if( $log_state == 'minimized' ) {
 	// INFO
 	$out_info = $log_title.$log_summary;
 	if( !empty( strip_tags( $out_info ) ) ) {
-		$out_info = '<div class="info">'.$out_info.'</div>';
+		$out_info = '<div class="group info">'.$out_info.'</div>';
 	} else {
 		$out_info = '';
 	}
 
 	// SPEC
-	$out_spec = $log_code.$log_user.$log_label.$log_date.$log_cta.$log_link_external_link.$log_link_internal_link;
+	$out_spec = $log_code.$log_user.$log_label.$log_date.$log_link_external_link.$log_link_internal_link;
 	if( !empty( strip_tags( $out_spec ) ) ) {
-		$out_spec = '<div class="spec">'.$out_spec.'</div>';
+		$out_spec = '<div class="group spec">'.$out_spec.'</div>';
 	} else {
 		$out_spec = '';
 	}
@@ -158,8 +160,8 @@ if( $log_state == 'minimized' ) {
 	// INNERBLOCK
 	if( !empty( $log_innerblock ) ) {
 		$out_innblo = '<div class="item expand"><a class="alink" id="group_line_expander__'.$block_counter.'">CLICK TO EXPAND</a></div>
-						<div class="item innerblock hide" id="group_info__'.$block_counter.'">
-							'.$log_innerblock.'
+						<div class="group innerblock hide" id="group_info__'.$block_counter.'">
+							<InnerBlocks />
 						</div>';
 	} else {
 		$out_innblo = '';
@@ -181,7 +183,7 @@ if( $log_state == 'expanded' ) {
 	// INFO
 	$out_info = $log_title.$log_summary;
 	if( !empty( strip_tags( $out_info ) ) ) {
-		$out_info = '<div class="info">'.$out_info.'</div>';
+		$out_info = '<div class="group info">'.$out_info.'</div>';
 	} else {
 		$out_info = '';
 	}
@@ -189,16 +191,16 @@ if( $log_state == 'expanded' ) {
 	// SPEC
 	$out_spec = $log_code.$log_user.$log_label.$log_date.$log_cta.$log_link_external_link.$log_link_internal_link;
 	if( !empty( strip_tags( $out_spec ) ) ) {
-		$out_spec = '<div class="spec">'.$out_spec.'</div>';
+		$out_spec = '<div class="group spec">'.$out_spec.'</div>';
 	} else {
 		$out_spec = '';
 	}
 
 	// INNERBLOCK
 	if( !empty( $log_innerblock ) ) {
-		$out_innblo = '<div class="item expand"><a class="item expand" id="group_line_expander__'.$block_counter.'">CLICK TO HIDE</a></div>
-						<div class="group innerblock hide" id="group_info__'.$block_counter.'">
-							'.$log_innerblock.'
+		$out_innblo = '<div class="item expand"><a class="alink" id="group_line_expander__'.$block_counter.'">CLICK TO HIDE</a></div>
+						<div class="group innerblock" id="group_info__'.$block_counter.'">
+							<InnerBlocks />
 						</div>';
 	} else {
 		$out_innblo = '';

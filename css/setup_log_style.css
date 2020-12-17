@@ -1,4 +1,4 @@
-/* SETUP-LOG | 1.0.6 | 201012 | assets/scss/main.scss
+/* SETUP-LOG | 2.0.0 | 201217 | assets/scss/main.scss
 ---------------------------------------------------------------------------------------------------- */
 /* SETUP-BE | 1.0.3 | 201016 | assets/scss/partials/base.scss
 ---------------------------------------------------------------------------------------------------- */
@@ -64,14 +64,15 @@
  */
 /* SETUP-BE | 1.0.0 | 200408 | setup-be/modules/setup-be-100/base-styles.scss
 ---------------------------------------------------------------------------------------------------- */
-/* SETUP-LOG | 1.0.6 | 201101 | setup-be/block-custom/setup-log-106/log.scss
+/* SETUP-LOG | 2.0.0 | 201217 | setup-be/block-custom/setup-log-200/log.scss
 ---------------------------------------------------------------------------------------------------- */
 .hide {
   display: none;
 }
 
 .module.log {
-  margin-bottom: 0.25rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 .module.log.shadow {
@@ -115,16 +116,15 @@
   display: grid;
   grid-template-columns: 1fr auto;
   grid-gap: 0.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+  margin-bottom: 0.5rem;
   border-left: 0.5rem solid #eee;
 }
 .module.log .group.bar .left, .module.log .group.bar .right {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
 }
 .module.log.minimal .group.bar {
   display: grid;
@@ -193,6 +193,8 @@
 }
 .module.log.highlight .group.bar {
   background-color: #f3f3f3;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 .module.log.highlight.default .group.bar, .module.log .module.log.highlight.default .group.bar {
   background-color: #eee;
@@ -232,6 +234,21 @@
 }
 .module.log.basic .group.bar, .module.log.nobgcolor .group.bar {
   background-color: transparent;
+}
+
+.module.log.focus-summary .group.summary {
+  font-size: 0.875rem;
+  background-color: #999;
+  color: #eee;
+  padding: 0.25rem 1rem;
+}
+
+.module.log.focus-innerblock .group.innerblock {
+  padding: 1rem;
+  border: 1px solid #eee;
+  -webkit-box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.15);
 }
 
 .module.log .group.bar .item.date,
@@ -300,7 +317,7 @@
   padding: 2px;
   border-radius: 2px;
   line-height: 1;
-  width: 12px;
+  min-width: 14px;
   text-align: center;
 }
 .module.log.minimal .group.bar .item.expand {
@@ -308,6 +325,7 @@
   padding: 4px;
   border-radius: 4px;
   line-height: 1;
+  min-width: 14px;
   width: auto;
 }
 
@@ -335,4 +353,169 @@
 .module.log .group.bar .item.summary,
 .module.log .group.bar .item.info {
   font-size: 0.875rem;
+}
+
+.module.log.heading.heading-small .item.label {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .module.log.heading.heading-small .item.label {
+    font-size: 1.25rem;
+  }
+}
+.module.log.heading .item.label {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .module.log.heading .item.label {
+    font-size: 1.375rem;
+  }
+}
+@media (min-width: 992px) {
+  .module.log.heading .item.label {
+    font-size: 1.5rem;
+  }
+}
+.module.log.heading.heading-large .item.label {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .module.log.heading.heading-large .item.label {
+    font-size: 1.875rem;
+  }
+}
+@media (min-width: 992px) {
+  .module.log.heading.heading-large .item.label {
+    font-size: 2.25rem;
+  }
+}
+.module.log.heading.heading-huge .item.label {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .module.log.heading.heading-huge .item.label {
+    font-size: 2.625rem;
+  }
+}
+@media (min-width: 992px) {
+  .module.log.heading.heading-huge .item.label {
+    font-size: 3rem;
+  }
+}
+
+.module.log.heading .item.title, .module.log.heading.focus-summary .item.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .module.log.heading .item.title, .module.log.heading.focus-summary .item.title {
+    font-size: 1.25rem;
+  }
+}
+
+/* SETUP-LOG | 2.0.0 | 201217 | setup-be/block-custom/setup-log-200/stack.scss
+---------------------------------------------------------------------------------------------------- */
+.module.log.stack {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.module.log.stack.margin-zero-top {
+  margin-top: 0;
+}
+.module.log.stack.margin-zero-bottom {
+  margin-bottom: 0;
+}
+.module.log.stack.size-huge .group.info {
+  font-size: 2.25rem;
+  line-height: 1;
+}
+@media (min-width: 768px) {
+  .module.log.stack.size-huge .group.info {
+    font-size: 2.625rem;
+  }
+}
+@media (min-width: 992px) {
+  .module.log.stack.size-huge .group.info {
+    font-size: 3rem;
+  }
+}
+.module.log.stack.size-large .group.info {
+  font-size: 1.5rem;
+  line-height: 1.125;
+}
+@media (min-width: 768px) {
+  .module.log.stack.size-large .group.info {
+    font-size: 1.875rem;
+  }
+}
+@media (min-width: 992px) {
+  .module.log.stack.size-large .group.info {
+    font-size: 2.25rem;
+  }
+}
+.module.log.stack.size-medium .group.info {
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+@media (min-width: 768px) {
+  .module.log.stack.size-medium .group.info {
+    font-size: 1.375rem;
+  }
+}
+@media (min-width: 992px) {
+  .module.log.stack.size-medium .group.info {
+    font-size: 1.5rem;
+  }
+}
+
+.group.info {
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .group.info {
+    font-size: 1.125rem;
+  }
+}
+
+.group.spec {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+}
+.group.spec .item {
+  margin-right: 0.5rem;
+}
+
+.group.innerblock {
+  margin-top: 0.5rem;
+}
+
+.item.title {
+  font-weight: 700;
+}
+
+.item.expand {
+  display: inline-block;
+  font-size: 0.5rem;
+  font-weight: 500;
+  line-height: 1;
+}
+.item.expand a {
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  background-color: #eee;
+  color: #666;
+  padding: 4px;
+  border-radius: 4px;
+}
+.item.expand a:hover {
+  text-decoration: none;
+  color: #eee;
+  background-color: #999;
 }
