@@ -9,10 +9,11 @@ if( array_key_exists( 'className', $block ) ) {
 } else {
 
 	// unset variable so the styling won't spill over to the next block
-	if( isset( $block_css ) ) {
+	/*if( isset( $block_css ) ) {
 		unset( $block_css );
-	}
-
+	}*/
+	$block_css = '';
+	
 }
 
 //echo setup_acf_pull_view_template( $layout );
