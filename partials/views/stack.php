@@ -1,5 +1,10 @@
 <?php
 
+// unset array to remove previously declared selectors
+if( isset( $block_css ) ) {
+ 	unset( $block_css );
+}
+
 global $block_css, $block_counter;
 
 // increment counter
